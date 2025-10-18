@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>异步 on vzvixb</title>
-    <link>https://zhouxiaoxin.gitee.io/tags/%E5%BC%82%E6%AD%A5/</link>
+    <link>https://www.dsysu.com/my/tags/%E5%BC%82%E6%AD%A5/</link>
     <description>Recent content in 异步 on vzvixb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 May 2018 20:16:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/%E5%BC%82%E6%AD%A5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 May 2018 20:16:00 +0000</lastBuildDate><atom:link href="https://www.dsysu.com/my/tags/%E5%BC%82%E6%AD%A5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>计算机知识要点</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</link>
+      <link>https://www.dsysu.com/my/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</link>
       <pubDate>Thu, 31 May 2018 20:16:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;CPU的核心数，线程数&lt;/li&gt;
 &lt;li&gt;应用程序的多进程和多线程&lt;/li&gt;

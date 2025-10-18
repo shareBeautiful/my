@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTTP on vzvixb</title>
-    <link>https://zhouxiaoxin.gitee.io/tags/http/</link>
+    <link>https://www.dsysu.com/my/tags/http/</link>
     <description>Recent content in HTTP on vzvixb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Oct 2017 16:04:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Oct 2017 16:04:00 +0000</lastBuildDate><atom:link href="https://www.dsysu.com/my/tags/http/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTP协议(转)</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</link>
+      <link>https://www.dsysu.com/my/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</link>
       <pubDate>Mon, 16 Oct 2017 16:04:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</guid>
+      <guid>https://www.dsysu.com/my/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</guid>
       <description>&lt;h2 id=&#34;http介绍&#34;&gt;http介绍&lt;/h2&gt;
 &lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,
 是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。

@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://zhouxiaoxin.gitee.io/sitemap.xml
+Sitemap: https://www.dsysu.com/my/sitemap.xml

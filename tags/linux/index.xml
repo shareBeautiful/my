@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on vzvixb</title>
-    <link>https://zhouxiaoxin.gitee.io/tags/linux/</link>
+    <link>https://www.dsysu.com/my/tags/linux/</link>
     <description>Recent content in Linux on vzvixb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 May 2018 20:16:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 May 2018 20:16:00 +0000</lastBuildDate><atom:link href="https://www.dsysu.com/my/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>计算机知识要点</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</link>
+      <link>https://www.dsysu.com/my/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</link>
       <pubDate>Thu, 31 May 2018 20:16:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;CPU的核心数，线程数&lt;/li&gt;
 &lt;li&gt;应用程序的多进程和多线程&lt;/li&gt;
@@ -23,10 +23,10 @@
     
     <item>
       <title>Linux系统发行版</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</link>
+      <link>https://www.dsysu.com/my/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</link>
       <pubDate>Thu, 28 Sep 2017 10:00:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</guid>
       <description>&lt;h2 id=&#34;linux发行版推荐&#34;&gt;linux发行版推荐：&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.debian.org/&#34;&gt;Debian&lt;/a&gt; 最适合系统管理员的发行版&lt;/li&gt;
@@ -48,20 +48,20 @@
     
     <item>
       <title>Ubuntu软件安装和远程连接</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
+      <link>https://www.dsysu.com/my/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
       <pubDate>Tue, 05 Sep 2017 15:01:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词（译为吾帮托或乌班图），意思是“人性”、“我的存在是因为大家的存在”，是非洲传统的一种价值观，类似华人社会的“仁爱”思想。Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本。Ubuntu的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统。Ubuntu具有庞大的社区力量，用户可以方便地从社区获得帮助。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>vim编辑器基本用法</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <link>https://www.dsysu.com/my/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</link>
       <pubDate>Mon, 28 Aug 2017 22:14:26 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <guid>https://www.dsysu.com/my/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
       <description>&lt;p&gt;vi编辑器通常被简称为vi，而vi又是visual editor的简称 。它在Linux上的地位就像Edit程序在DOS上一样。它可以执行输出、删除、查找、替换、块操作等众多文本操作，而且用户可以根据自己的需要对其进行定制，这是其他编辑程序所没有的。
 vi 编辑器并不是一个排版程序，它不像Word或WPS那样可以对字体、格式、段落等其他属性进行编排，它只是一个文本编辑程序。没有菜单，只有命令，且命令繁多。vi有3种基本工作模式：命令行模式、文本输入模式和末行模式。
 Vim是vi的加强版，比vi更容易使用。vi的命令几乎全部都可以在vim上使用。&lt;/p&gt;</description>
@@ -69,10 +69,10 @@ Vim是vi的加强版，比vi更容易使用。vi的命令几乎全部都可以�
     
     <item>
       <title>Linux常用指令</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
+      <link>https://www.dsysu.com/my/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
       <pubDate>Mon, 28 Aug 2017 22:07:27 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
       <description>1.查看目录下有什么文件/目录 &amp;gt; ls //list 列出目录的文件信息 &amp;gt; ls -l或ll //list -list以详细列表形式 查看目录文件 &amp;gt; ls - //list -all查看目录“全部”(</description>
     </item>
     

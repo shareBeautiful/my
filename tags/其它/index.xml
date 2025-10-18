@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>其它 on vzvixb</title>
-    <link>https://zhouxiaoxin.gitee.io/tags/%E5%85%B6%E5%AE%83/</link>
+    <link>https://www.dsysu.com/my/tags/%E5%85%B6%E5%AE%83/</link>
     <description>Recent content in 其它 on vzvixb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Aug 2017 16:01:23 +0800</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/%E5%85%B6%E5%AE%83/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2017 16:01:23 +0800</lastBuildDate><atom:link href="https://www.dsysu.com/my/tags/%E5%85%B6%E5%AE%83/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shortcodes</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/shortcodes/</link>
+      <link>https://www.dsysu.com/my/post/1/shortcodes/</link>
       <pubDate>Wed, 30 Aug 2017 16:01:23 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/shortcodes/</guid>
+      <guid>https://www.dsysu.com/my/post/1/shortcodes/</guid>
       <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;biu biu biu.&lt;/p&gt;
@@ -56,10 +56,10 @@ Without title.
     
     <item>
       <title>Syntax Highlighting</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/syntax-highlighting/</link>
+      <link>https://www.dsysu.com/my/post/1/syntax-highlighting/</link>
       <pubDate>Wed, 30 Aug 2017 16:01:23 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/syntax-highlighting/</guid>
+      <guid>https://www.dsysu.com/my/post/1/syntax-highlighting/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -77,10 +77,10 @@ Without title.
     
     <item>
       <title>Theme preview</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/even-preview/</link>
+      <link>https://www.dsysu.com/my/post/1/even-preview/</link>
       <pubDate>Mon, 10 Jul 2017 00:00:00 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/even-preview/</guid>
+      <guid>https://www.dsysu.com/my/post/1/even-preview/</guid>
       <description>Based on MarkdownPreview test.md. Markdown 1 2 3 4 5 6 7 8 # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ### Duplicate Header ### Duplicate Header H1 H2 H3 H4 H5 H6 Duplicate Header Duplicate Header Paragraphs 1 2 3 4 This is a paragraph. I am still part of the paragraph. New paragraph. This is a paragraph. I am still part of the paragraph.</description>
     </item>
     

@@ -2,161 +2,161 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vzvixb</title>
-    <link>https://zhouxiaoxin.gitee.io/</link>
+    <link>https://www.dsysu.com/my/</link>
     <description>Recent content on vzvixb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Dec 2018 17:54:01 +0800</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Dec 2018 17:54:01 +0800</lastBuildDate><atom:link href="https://www.dsysu.com/my/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>https://zhouxiaoxin.gitee.io/about/</link>
+      <link>https://www.dsysu.com/my/about/</link>
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/about/</guid>
+      <guid>https://www.dsysu.com/my/about/</guid>
       <description> it&amp;rsquo;s my git  </description>
     </item>
     
     <item>
       <title>Python3 多进程和多线程</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/python3%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <link>https://www.dsysu.com/my/post/python/python3%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
       <pubDate>Fri, 14 Dec 2018 17:54:01 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/python3%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <guid>https://www.dsysu.com/my/post/python/python3%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
       <description>线程是最小的执行单元，而进程由至少一个线程组成。 多进程模式； 多线程模式； 多进程+多线程模式。 Python中的multiprocess提供了P</description>
     </item>
     
     <item>
       <title>Python3常用标准库</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/python3%E5%B8%B8%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93/</link>
+      <link>https://www.dsysu.com/my/post/python/python3%E5%B8%B8%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93/</link>
       <pubDate>Mon, 10 Dec 2018 20:46:21 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/python3%E5%B8%B8%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+      <guid>https://www.dsysu.com/my/post/python/python3%E5%B8%B8%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93/</guid>
       <description>Python3 常用标准库 python3 内置函数 os模块 os对象 os.path对象 (可以使用pathlib替换) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27</description>
     </item>
     
     <item>
       <title>pip学习笔记</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/pip%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://www.dsysu.com/my/post/python/pip%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 03 Dec 2018 10:09:13 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/pip%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://www.dsysu.com/my/post/python/pip%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>pip版本 1 2 pip --version # 或 pip -V 更新pip 1 2 3 4 5 pip install -U pip #或 python -m pip install --upgrade pip # 如果这个升级命令出现问题 ，可以使用以下命令 easy_install --upgrade pip 查看安装了哪些库 1 pip</description>
     </item>
     
     <item>
       <title>前端知识目录</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%9B%AE%E5%BD%95/</link>
+      <link>https://www.dsysu.com/my/post/1/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%9B%AE%E5%BD%95/</link>
       <pubDate>Thu, 27 Sep 2018 11:32:11 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%9B%AE%E5%BD%95/</guid>
+      <guid>https://www.dsysu.com/my/post/1/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%9B%AE%E5%BD%95/</guid>
       <description>CSS： Grid Flex float, position BFC, IFC, Box Model vertical-align和line-height 层叠顺序，堆叠上下文 JavaScript: 对象的方法和属性 作用域和闭包 原型和原型链 异</description>
     </item>
     
     <item>
       <title>02-网络爬虫基础</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/02.%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</link>
+      <link>https://www.dsysu.com/my/post/python/02.%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/02.%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://www.dsysu.com/my/post/python/02.%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</guid>
       <description>什么是网络爬虫？ 获取url地址，发现url规律，请求网络并提取u数据的自动化程序 爬虫基本流程 1. 发送请求 通过HTTP库向目标网站点发起请求，即</description>
     </item>
     
     <item>
       <title>03-urllib库详解</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/03.urllib%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
+      <link>https://www.dsysu.com/my/post/python/03.urllib%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/03.urllib%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>https://www.dsysu.com/my/post/python/03.urllib%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
       <description>urllib库详解 什么是urllib Python 内置的HTTP请求库 urllib.request # 请求模块 urllib.error # 异常处理 urllib.parse # url解析模块 urllib.robotparser # robots.txt解析模块 相比 Py</description>
     </item>
     
     <item>
       <title>04-Requests库详解</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/04.requests%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
+      <link>https://www.dsysu.com/my/post/python/04.requests%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/04.requests%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>https://www.dsysu.com/my/post/python/04.requests%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
       <description>requests库详解 什么是 requests Requests 使用Python语言编写的，基于urllib,采用 Apache2 Licensed 开源协议的HTTP库。它比urllib更加方便，可以节</description>
     </item>
     
     <item>
       <title>05-Python正则表达式</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/05.python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <link>https://www.dsysu.com/my/post/python/05.python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/05.python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <guid>https://www.dsysu.com/my/post/python/05.python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
       <description>正则表达式 1. re.match re.match尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none 可以用group</description>
     </item>
     
     <item>
       <title>06-BeautifulSoup详解</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/06.beautifulsoup%E8%AF%A6%E8%A7%A3/</link>
+      <link>https://www.dsysu.com/my/post/python/06.beautifulsoup%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/06.beautifulsoup%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>https://www.dsysu.com/my/post/python/06.beautifulsoup%E8%AF%A6%E8%A7%A3/</guid>
       <description>BeautifulSoup详解 安装BeautifulSoup 1 pip install beautiful4 解析库 python 标准库 lxml HTML 解析器 html5lib 使用soup.prettfy()进行格式化 1 BeautifulSoup(str,</description>
     </item>
     
     <item>
       <title>07-PyQuery库详解</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/07.pyquery%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
+      <link>https://www.dsysu.com/my/post/python/07.pyquery%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/07.pyquery%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>https://www.dsysu.com/my/post/python/07.pyquery%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
       <description>PyQuery库详解 强大又灵活的网页解析库。如果你觉得正则写起来太麻烦，如果你觉得BeautifulSoup语法太难记，如果你熟悉jQuer</description>
     </item>
     
     <item>
       <title>08-Selenium库详解</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/08.selenium%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
+      <link>https://www.dsysu.com/my/post/python/08.selenium%E5%BA%93%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/08.selenium%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>https://www.dsysu.com/my/post/python/08.selenium%E5%BA%93%E8%AF%A6%E8%A7%A3/</guid>
       <description>Selenium库详解 自动华测试工具，支持多种浏览器。爬虫中主要用来解决JavsScript渲染的问题 安装 1 pip install selenium 基本使用 1 2 3 4 5 6 7 8 9</description>
     </item>
     
     <item>
       <title>09-Requests&#43;正则爬取猫眼电影top100</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/09.requests&#43;%E6%AD%A3%E5%88%99%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1top100/</link>
+      <link>https://www.dsysu.com/my/post/python/09.requests&#43;%E6%AD%A3%E5%88%99%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1top100/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/09.requests&#43;%E6%AD%A3%E5%88%99%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1top100/</guid>
+      <guid>https://www.dsysu.com/my/post/python/09.requests&#43;%E6%AD%A3%E5%88%99%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1top100/</guid>
       <description>09.Requests+正则爬取猫眼电影top100 目标网站分析 流程框架 抓取单页内容，(使用requests库得到html) 正则表达式分析，</description>
     </item>
     
     <item>
       <title>10-分析Ajax请求并抓取今日头条街拍美图 </title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/10.%E5%88%86%E6%9E%90ajax%E8%AF%B7%E6%B1%82%E5%B9%B6%E6%8A%93%E5%8F%96%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E8%A1%97%E6%8B%8D%E7%BE%8E%E5%9B%BE-/</link>
+      <link>https://www.dsysu.com/my/post/python/10.%E5%88%86%E6%9E%90ajax%E8%AF%B7%E6%B1%82%E5%B9%B6%E6%8A%93%E5%8F%96%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E8%A1%97%E6%8B%8D%E7%BE%8E%E5%9B%BE-/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/10.%E5%88%86%E6%9E%90ajax%E8%AF%B7%E6%B1%82%E5%B9%B6%E6%8A%93%E5%8F%96%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E8%A1%97%E6%8B%8D%E7%BE%8E%E5%9B%BE-/</guid>
+      <guid>https://www.dsysu.com/my/post/python/10.%E5%88%86%E6%9E%90ajax%E8%AF%B7%E6%B1%82%E5%B9%B6%E6%8A%93%E5%8F%96%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E8%A1%97%E6%8B%8D%E7%BE%8E%E5%9B%BE-/</guid>
       <description>10.分析Ajax请求并抓取今日头条街拍美图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48</description>
     </item>
     
     <item>
       <title>11-分析Ajax请求并抓取今日头条街拍美图</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/11.selenium&#43;chrome%E7%88%AC%E5%8F%96%E6%B7%98%E5%AE%9D/</link>
+      <link>https://www.dsysu.com/my/post/python/11.selenium&#43;chrome%E7%88%AC%E5%8F%96%E6%B7%98%E5%AE%9D/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/11.selenium&#43;chrome%E7%88%AC%E5%8F%96%E6%B7%98%E5%AE%9D/</guid>
+      <guid>https://www.dsysu.com/my/post/python/11.selenium&#43;chrome%E7%88%AC%E5%8F%96%E6%B7%98%E5%AE%9D/</guid>
       <description>10.分析Ajax请求并抓取今日头条街拍美图 config.py 1 2 3 4 MONGO_URL = &amp;#39;localhost&amp;#39; MONGO_DB = &amp;#39;taobao&amp;#39; MONGO_TABLE = &amp;#39;product&amp;#39; KEY_WORD = &amp;#39;美食&amp;#39; taobao_spider.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19</description>
     </item>
     
     <item>
       <title>12-Scrapy框架</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/12.scrapy%E6%A1%86%E6%9E%B6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://www.dsysu.com/my/post/python/12.scrapy%E6%A1%86%E6%9E%B6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 08 Sep 2018 16:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/12.scrapy%E6%A1%86%E6%9E%B6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://www.dsysu.com/my/post/python/12.scrapy%E6%A1%86%E6%9E%B6%E7%AC%94%E8%AE%B0/</guid>
       <description>Scrapy框架 Scrapy安装 windows安装 简单安装 1 pip install scrapy 如果上面出错,从pypi网上下载相应版本的whl文件 lxml PyQpenSSL Twisted Pywin32 Scrapy 然后安装 1 pip</description>
     </item>
     
     <item>
       <title>01-常用爬虫库</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/01.%E5%B8%B8%E7%94%A8%E7%88%AC%E8%99%AB%E5%BA%93/</link>
+      <link>https://www.dsysu.com/my/post/python/01.%E5%B8%B8%E7%94%A8%E7%88%AC%E8%99%AB%E5%BA%93/</link>
       <pubDate>Sat, 08 Sep 2018 11:00:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/01.%E5%B8%B8%E7%94%A8%E7%88%AC%E8%99%AB%E5%BA%93/</guid>
+      <guid>https://www.dsysu.com/my/post/python/01.%E5%B8%B8%E7%94%A8%E7%88%AC%E8%99%AB%E5%BA%93/</guid>
       <description>&lt;h2 id=&#34;请求库&#34;&gt;请求库：&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;urllib re&lt;/li&gt;
@@ -193,10 +193,10 @@
     
     <item>
       <title>windows软件推荐</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/windows%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</link>
+      <link>https://www.dsysu.com/my/post/1/windows%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</link>
       <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/windows%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</guid>
+      <guid>https://www.dsysu.com/my/post/1/windows%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</guid>
       <description>&lt;h2 id=&#34;windows-扩展工具&#34;&gt;windows 扩展工具&lt;/h2&gt;
 &lt;h3 id=&#34;1-listary&#34;&gt;1. Listary&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -207,10 +207,10 @@
     
     <item>
       <title>Python基础语法(下)</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8B/</link>
+      <link>https://www.dsysu.com/my/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8B/</link>
       <pubDate>Mon, 27 Aug 2018 20:45:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8B/</guid>
+      <guid>https://www.dsysu.com/my/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8B/</guid>
       <description>&lt;h2 id=&#34;一-高级特效&#34;&gt;一 高级特效&lt;/h2&gt;
 &lt;h3 id=&#34;1切片&#34;&gt;1.切片&lt;/h3&gt;
 &lt;p&gt;这种经常取指定索引范围的操作，
@@ -219,10 +219,10 @@
     
     <item>
       <title>Python基础语法(上)</title>
-      <link>https://zhouxiaoxin.gitee.io/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8A/</link>
+      <link>https://www.dsysu.com/my/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8A/</link>
       <pubDate>Mon, 27 Aug 2018 20:03:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8A/</guid>
+      <guid>https://www.dsysu.com/my/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8A/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。&lt;/strong&gt;&lt;br&gt;
 Python 是由 Guido van Rossum 在八十年代末和九十年代初，在荷兰国家数学和计算机科学研究所设计出来的。
 Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3、C、C++、Algol-68、SmallTalk、Unix shell 和其他的脚本语言等等。
@@ -232,10 +232,10 @@ Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3
     
     <item>
       <title>计算机知识要点</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</link>
+      <link>https://www.dsysu.com/my/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</link>
       <pubDate>Thu, 31 May 2018 20:16:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;CPU的核心数，线程数&lt;/li&gt;
 &lt;li&gt;应用程序的多进程和多线程&lt;/li&gt;
@@ -246,10 +246,10 @@ Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3
     
     <item>
       <title>正则表达式学习笔记</title>
-      <link>https://zhouxiaoxin.gitee.io/post/javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://www.dsysu.com/my/post/javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 07 Feb 2018 12:23:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://www.dsysu.com/my/post/javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;h2 id=&#34;理论&#34;&gt;理论&lt;/h2&gt;
 &lt;h3 id=&#34;正则引擎&#34;&gt;正则引擎&lt;/h3&gt;
 &lt;ol&gt;
@@ -269,10 +269,10 @@ Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3
     
     <item>
       <title>vscode插件</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/vscode%E6%8F%92%E4%BB%B6/</link>
+      <link>https://www.dsysu.com/my/post/1/vscode%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Tue, 06 Feb 2018 10:48:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/vscode%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://www.dsysu.com/my/post/1/vscode%E6%8F%92%E4%BB%B6/</guid>
       <description>&lt;h3 id=&#34;vs-code-插件&#34;&gt;vs code 插件&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;prettier 是目前 Web 开发中最受欢迎的代码格式化程序&lt;/li&gt;
@@ -297,10 +297,10 @@ Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3
     
     <item>
       <title>css代码段</title>
-      <link>https://zhouxiaoxin.gitee.io/post/htmlcss/css%E4%BB%A3%E7%A0%81%E6%AE%B5/</link>
+      <link>https://www.dsysu.com/my/post/htmlcss/css%E4%BB%A3%E7%A0%81%E6%AE%B5/</link>
       <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/htmlcss/css%E4%BB%A3%E7%A0%81%E6%AE%B5/</guid>
+      <guid>https://www.dsysu.com/my/post/htmlcss/css%E4%BB%A3%E7%A0%81%E6%AE%B5/</guid>
       <description>&lt;p&gt;CSS书写顺序&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;位置属性(position, top, right, z-index, display, float等)&lt;/li&gt;
@@ -313,20 +313,20 @@ Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3
     
     <item>
       <title>层叠顺序与堆栈上下文</title>
-      <link>https://zhouxiaoxin.gitee.io/post/htmlcss/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87/</link>
+      <link>https://www.dsysu.com/my/post/htmlcss/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87/</link>
       <pubDate>Mon, 11 Dec 2017 10:19:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/htmlcss/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87/</guid>
+      <guid>https://www.dsysu.com/my/post/htmlcss/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87/</guid>
       <description>&lt;h2 id=&#34;简要&#34;&gt;简要&lt;/h2&gt;
 &lt;p&gt;在CSS的盒模型中，所有的元素除了可以再屏幕上自由摆放外，还可以沿着 &lt;strong&gt;z轴&lt;/strong&gt; 进行摆放，特别是当元素为止互相重叠的时候，了解z轴的摆放顺序非常重要。使用 &lt;code&gt;z-index&lt;/code&gt; 可以改变元素在 z轴 的上下层级，但是 &lt;code&gt;z-index&lt;/code&gt; 具体是如何影响元素的层级呢？为什么有时候它并不生效。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>HTTP协议(转)</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</link>
+      <link>https://www.dsysu.com/my/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</link>
       <pubDate>Mon, 16 Oct 2017 16:04:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</guid>
+      <guid>https://www.dsysu.com/my/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</guid>
       <description>&lt;h2 id=&#34;http介绍&#34;&gt;http介绍&lt;/h2&gt;
 &lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,
 是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。
@@ -340,10 +340,10 @@ Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/
     
     <item>
       <title>Linux系统发行版</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</link>
+      <link>https://www.dsysu.com/my/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</link>
       <pubDate>Thu, 28 Sep 2017 10:00:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/linux%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88/</guid>
       <description>&lt;h2 id=&#34;linux发行版推荐&#34;&gt;linux发行版推荐：&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.debian.org/&#34;&gt;Debian&lt;/a&gt; 最适合系统管理员的发行版&lt;/li&gt;
@@ -365,10 +365,10 @@ Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/
     
     <item>
       <title>(转)javascript 奇淫巧技44招</title>
-      <link>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</link>
+      <link>https://www.dsysu.com/my/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</link>
       <pubDate>Thu, 21 Sep 2017 15:03:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</guid>
+      <guid>https://www.dsysu.com/my/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</guid>
       <description>&lt;h2 id=&#34;1首次为变量赋值时务必使用var关键字&#34;&gt;1、首次为变量赋值时务必使用var关键字&lt;/h2&gt;
 &lt;p&gt;变量没有声明而直接赋值得话，默认会作为一个新的全局变量，要尽量避免使用全局变量。&lt;/p&gt;
 &lt;h2 id=&#34;2使用取代&#34;&gt;2、使用===取代==&lt;/h2&gt;
@@ -377,10 +377,10 @@ Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/
     
     <item>
       <title>ES6学习笔记</title>
-      <link>https://zhouxiaoxin.gitee.io/post/javascript/es6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://www.dsysu.com/my/post/javascript/es6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 13 Sep 2017 10:49:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/javascript/es6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://www.dsysu.com/my/post/javascript/es6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>&lt;h2 id=&#34;javascript历史&#34;&gt;javaScript历史&lt;/h2&gt;
 &lt;p&gt;ECMAScript 1.0 是1997年发布的，接下来的两年，连续发布了 ECMAScript 2.0（1998年6月）和 ECMAScript 3.0（1999年12月）3.0版是一个巨大的成功，在业界得到广泛支持，成为通行标准，奠定了 JavaScript 语言的基本语法，以后的版本完全继承。&lt;/p&gt;
 &lt;p&gt;2000年，ECMAScript 4.0 开始酝酿。这个版本最后没有通过，但是它的大部分内容被 ES6 继承了。因此，ES6 制定的起点其实是2000年。&lt;/p&gt;
@@ -389,20 +389,20 @@ Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/
     
     <item>
       <title>Ubuntu软件安装和远程连接</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
+      <link>https://www.dsysu.com/my/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
       <pubDate>Tue, 05 Sep 2017 15:01:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词（译为吾帮托或乌班图），意思是“人性”、“我的存在是因为大家的存在”，是非洲传统的一种价值观，类似华人社会的“仁爱”思想。Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本。Ubuntu的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统。Ubuntu具有庞大的社区力量，用户可以方便地从社区获得帮助。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>php基础笔记清单</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/</link>
+      <link>https://www.dsysu.com/my/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/</link>
       <pubDate>Thu, 31 Aug 2017 11:22:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/</guid>
+      <guid>https://www.dsysu.com/my/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/</guid>
       <description>&lt;h2 id=&#34;简要&#34;&gt;简要&lt;/h2&gt;
 &lt;p&gt;PHP 继承自一个老的工程，名叫 PHP/FI。PHP/FI 在 1995 年由 Rasmus Lerdorf 创建，最初只是一套简单的 Perl 脚本，用来跟踪访问他主页的人们的信息。它给这一套脚本取名为“Personal Home Page Tools”。随着更多功能需求的增加，Rasmus 写了一个更大的 C 语言的实现，它可以访问数据库，可以让用户开发简单的动态 Web 程序。Rasmus » 发布了 PHP/FI 的源代码，以便每个人都可以使用它，同时大家也可以修正它的 Bug 并且改进它的源代码。&lt;/p&gt;
 &lt;p&gt;PHP/FI，一个专为个人主页／表单提供解释程序的程序，已经包含了今天 PHP 的一些基本功能。它有着 Perl 样式的变量，自动解释表单变量，并可以嵌入 HTML。语法本身与 Perl 很相似，但是它很有限，很简单，还稍微有些不协调。&lt;/p&gt;</description>
@@ -410,10 +410,10 @@ Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/
     
     <item>
       <title>Shortcodes</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/shortcodes/</link>
+      <link>https://www.dsysu.com/my/post/1/shortcodes/</link>
       <pubDate>Wed, 30 Aug 2017 16:01:23 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/shortcodes/</guid>
+      <guid>https://www.dsysu.com/my/post/1/shortcodes/</guid>
       <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;biu biu biu.&lt;/p&gt;
@@ -457,10 +457,10 @@ Without title.
     
     <item>
       <title>Syntax Highlighting</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/syntax-highlighting/</link>
+      <link>https://www.dsysu.com/my/post/1/syntax-highlighting/</link>
       <pubDate>Wed, 30 Aug 2017 16:01:23 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/syntax-highlighting/</guid>
+      <guid>https://www.dsysu.com/my/post/1/syntax-highlighting/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -478,19 +478,19 @@ Without title.
     
     <item>
       <title>装系统教程</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/%E8%A3%85%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</link>
+      <link>https://www.dsysu.com/my/post/1/%E8%A3%85%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/%E8%A3%85%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://www.dsysu.com/my/post/1/%E8%A3%85%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</guid>
       <description>工具 PC一台 U盘8G一个 rufus.exe软件 下载 win10系统镜像iso一个 msdn 下载 （迅雷下载） 步骤 备份电脑上的重要数据到其它盘(包括C盘和</description>
     </item>
     
     <item>
       <title>vim编辑器基本用法</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <link>https://www.dsysu.com/my/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</link>
       <pubDate>Mon, 28 Aug 2017 22:14:26 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <guid>https://www.dsysu.com/my/post/1/vim%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
       <description>&lt;p&gt;vi编辑器通常被简称为vi，而vi又是visual editor的简称 。它在Linux上的地位就像Edit程序在DOS上一样。它可以执行输出、删除、查找、替换、块操作等众多文本操作，而且用户可以根据自己的需要对其进行定制，这是其他编辑程序所没有的。
 vi 编辑器并不是一个排版程序，它不像Word或WPS那样可以对字体、格式、段落等其他属性进行编排，它只是一个文本编辑程序。没有菜单，只有命令，且命令繁多。vi有3种基本工作模式：命令行模式、文本输入模式和末行模式。
 Vim是vi的加强版，比vi更容易使用。vi的命令几乎全部都可以在vim上使用。&lt;/p&gt;</description>
@@ -498,37 +498,37 @@ Vim是vi的加强版，比vi更容易使用。vi的命令几乎全部都可以�
     
     <item>
       <title>Linux常用指令</title>
-      <link>https://zhouxiaoxin.gitee.io/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
+      <link>https://www.dsysu.com/my/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
       <pubDate>Mon, 28 Aug 2017 22:07:27 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
+      <guid>https://www.dsysu.com/my/post/linux/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
       <description>1.查看目录下有什么文件/目录 &amp;gt; ls //list 列出目录的文件信息 &amp;gt; ls -l或ll //list -list以详细列表形式 查看目录文件 &amp;gt; ls - //list -all查看目录“全部”(</description>
     </item>
     
     <item>
       <title>屏幕设备的一些概念</title>
-      <link>https://zhouxiaoxin.gitee.io/post/htmlcss/%E5%B1%8F%E5%B9%95%E8%AE%BE%E5%A4%87%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5/</link>
+      <link>https://www.dsysu.com/my/post/htmlcss/%E5%B1%8F%E5%B9%95%E8%AE%BE%E5%A4%87%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Mon, 28 Aug 2017 17:18:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/htmlcss/%E5%B1%8F%E5%B9%95%E8%AE%BE%E5%A4%87%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://www.dsysu.com/my/post/htmlcss/%E5%B1%8F%E5%B9%95%E8%AE%BE%E5%A4%87%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5/</guid>
       <description>ppi dip dpr(设备相思是比) 分辨率 屏幕尺寸 设备物理像素 设备独立像素 分辨率：1920px * 1080px 在这个设备上纵向上有 1920个像素点（色块) 屏幕尺寸</description>
     </item>
     
     <item>
       <title>JavaScript面向对象精要读书笔记</title>
-      <link>https://zhouxiaoxin.gitee.io/post/javascript/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>https://www.dsysu.com/my/post/javascript/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 12 Aug 2017 21:29:06 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/javascript/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://www.dsysu.com/my/post/javascript/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%B2%BE%E8%A6%81%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description>JavaScript（ES5）的面向对象精要 1.原始类型和引用类型 1.1 什么是类型 原始类型 保存为简单数据值。 引用类型 保存为对象，其本质是指向内存</description>
     </item>
     
     <item>
       <title>jQuery常用操作</title>
-      <link>https://zhouxiaoxin.gitee.io/post/javascript/jquery%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+      <link>https://www.dsysu.com/my/post/javascript/jquery%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Thu, 10 Aug 2017 14:27:00 +0000</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/javascript/jquery%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+      <guid>https://www.dsysu.com/my/post/javascript/jquery%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
       <description>&lt;h2 id=&#34;一简介&#34;&gt;一、简介&lt;/h2&gt;
 &lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
 &lt;p&gt;　　jQuery创始人是美国John Resig，是优秀的Javascript框架；
@@ -543,19 +543,19 @@ Vim是vi的加强版，比vi更容易使用。vi的命令几乎全部都可以�
     
     <item>
       <title>Theme preview</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/even-preview/</link>
+      <link>https://www.dsysu.com/my/post/1/even-preview/</link>
       <pubDate>Mon, 10 Jul 2017 00:00:00 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/even-preview/</guid>
+      <guid>https://www.dsysu.com/my/post/1/even-preview/</guid>
       <description>Based on MarkdownPreview test.md. Markdown 1 2 3 4 5 6 7 8 # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ### Duplicate Header ### Duplicate Header H1 H2 H3 H4 H5 H6 Duplicate Header Duplicate Header Paragraphs 1 2 3 4 This is a paragraph. I am still part of the paragraph. New paragraph. This is a paragraph. I am still part of the paragraph.</description>
     </item>
     
     <item>
       <title>JS Sequence Diagrams</title>
-      <link>https://zhouxiaoxin.gitee.io/post/1/js-sequence-diagrams/</link>
+      <link>https://www.dsysu.com/my/post/1/js-sequence-diagrams/</link>
       <pubDate>Sat, 04 Mar 2017 21:57:45 +0800</pubDate>
       
-      <guid>https://zhouxiaoxin.gitee.io/post/1/js-sequence-diagrams/</guid>
+      <guid>https://www.dsysu.com/my/post/1/js-sequence-diagrams/</guid>
       <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
