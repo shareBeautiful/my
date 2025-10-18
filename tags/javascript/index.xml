@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Sep 2018 11:32:11 +0800</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>前端知识目录</title>
+      <link>https://zhouxiaoxin.gitee.io/post/1/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Thu, 27 Sep 2018 11:32:11 +0800</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/1/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%9B%AE%E5%BD%95/</guid>
+      <description>CSS： Grid Flex float, position BFC, IFC, Box Model vertical-align和line-height 层叠顺序，堆叠上下文 JavaScript: 对象的方法和属性 作用域和闭包 原型和原型链 异</description>
+    </item>
+    
+    <item>
+      <title>(转)javascript 奇淫巧技44招</title>
+      <link>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</link>
+      <pubDate>Thu, 21 Sep 2017 15:03:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</guid>
+      <description>&lt;h2 id=&#34;1首次为变量赋值时务必使用var关键字&#34;&gt;1、首次为变量赋值时务必使用var关键字&lt;/h2&gt;
+&lt;p&gt;变量没有声明而直接赋值得话，默认会作为一个新的全局变量，要尽量避免使用全局变量。&lt;/p&gt;
+&lt;h2 id=&#34;2使用取代&#34;&gt;2、使用===取代==&lt;/h2&gt;
+&lt;p&gt;==和!=操作符会在需要的情况下自动转换数据类型。但===和!==不会，它们会同时比较值和数据类型，这也使得它们要比==和!=快。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ES6学习笔记</title>
+      <link>https://zhouxiaoxin.gitee.io/post/javascript/es6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 13 Sep 2017 10:49:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/javascript/es6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;javascript历史&#34;&gt;javaScript历史&lt;/h2&gt;
+&lt;p&gt;ECMAScript 1.0 是1997年发布的，接下来的两年，连续发布了 ECMAScript 2.0（1998年6月）和 ECMAScript 3.0（1999年12月）3.0版是一个巨大的成功，在业界得到广泛支持，成为通行标准，奠定了 JavaScript 语言的基本语法，以后的版本完全继承。&lt;/p&gt;
+&lt;p&gt;2000年，ECMAScript 4.0 开始酝酿。这个版本最后没有通过，但是它的大部分内容被 ES6 继承了。因此，ES6 制定的起点其实是2000年。&lt;/p&gt;
+&lt;p&gt;2007年10月，ECMAScript 4.0 版草案发布，本来预计次年8月发布正式版本。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>转载文章 on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/tags/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/</link>
+    <description>Recent content in 转载文章 on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Oct 2017 16:04:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP协议(转)</title>
+      <link>https://zhouxiaoxin.gitee.io/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</link>
+      <pubDate>Mon, 16 Oct 2017 16:04:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/</guid>
+      <description>&lt;h2 id=&#34;http介绍&#34;&gt;http介绍&lt;/h2&gt;
+&lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,
+是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。
+HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。
+HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。
+它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，
+HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。
+HTTP协议工作于客户端-服务端架构为上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。
+Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>(转)javascript 奇淫巧技44招</title>
+      <link>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</link>
+      <pubDate>Thu, 21 Sep 2017 15:03:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</guid>
+      <description>&lt;h2 id=&#34;1首次为变量赋值时务必使用var关键字&#34;&gt;1、首次为变量赋值时务必使用var关键字&lt;/h2&gt;
+&lt;p&gt;变量没有声明而直接赋值得话，默认会作为一个新的全局变量，要尽量避免使用全局变量。&lt;/p&gt;
+&lt;h2 id=&#34;2使用取代&#34;&gt;2、使用===取代==&lt;/h2&gt;
+&lt;p&gt;==和!=操作符会在需要的情况下自动转换数据类型。但===和!==不会，它们会同时比较值和数据类型，这也使得它们要比==和!=快。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

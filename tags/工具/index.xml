@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/tags/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Feb 2018 10:48:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vscode插件</title>
+      <link>https://zhouxiaoxin.gitee.io/post/1/vscode%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Tue, 06 Feb 2018 10:48:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/1/vscode%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;h3 id=&#34;vs-code-插件&#34;&gt;vs code 插件&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;prettier 是目前 Web 开发中最受欢迎的代码格式化程序&lt;/li&gt;
+&lt;li&gt;ESlint  接管原生 js 提示，可以自定制提示规则。&lt;/li&gt;
+&lt;li&gt;beautify 格式化代码的工具&lt;/li&gt;
+&lt;li&gt;Minify 这是一款用于压缩合并 JavaScript 和 CSS 文件的应用程序。&lt;/li&gt;
+&lt;li&gt;Path Intellisense 自动路劲补全，默认不带这个功能的&lt;/li&gt;
+&lt;li&gt;Debugger for Chrome 让 vscode 映射 chrome 的 debug功能，静态页面都可以用 vscode 来打断点调试，&lt;/li&gt;
+&lt;li&gt;jQuery Code Snippets  jquery 重度患者必须品&lt;/li&gt;
+&lt;li&gt;JavaScript(es6)code snippets  ES6语法提示&lt;/li&gt;
+&lt;li&gt;Atuo Rename Tag  修改 html 标签，自动帮你完成尾部闭合标签的同步修改&lt;/li&gt;
+&lt;li&gt;Open-In-Browser  在浏览器中打开文件&lt;/li&gt;
+&lt;li&gt;Better Comments  编写更加人性化的注释（推荐）&lt;/li&gt;
+&lt;li&gt;View In Browser  快读打开浏览器Ctrl+F1&lt;/li&gt;
+&lt;li&gt;Sass 	sass插件&lt;/li&gt;
+&lt;li&gt;filesize 在底部状态栏显示当前文件大小，点击后还可以看到详细创建、修改时间&lt;/li&gt;
+&lt;li&gt;JavaScript (ES6) code snippets 常用的类声明、ES 模块声明、CMD 模块导入等&lt;/li&gt;
+&lt;li&gt;IntelliSense for CSS class names CSS 类名补全，会自动扫描整个项目里面的 CSS 类名并在你输入类名时做智能提示&lt;/li&gt;
+&lt;li&gt;Setting Sync 可同步包含的所有扩展和完整的用户文件夹&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

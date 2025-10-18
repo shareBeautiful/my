@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pip on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/tags/pip/</link>
+    <description>Recent content in pip on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Dec 2018 10:09:13 +0800</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/tags/pip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pip学习笔记</title>
+      <link>https://zhouxiaoxin.gitee.io/post/python/pip%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 03 Dec 2018 10:09:13 +0800</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/python/pip%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>pip版本 1 2 pip --version # 或 pip -V 更新pip 1 2 3 4 5 pip install -U pip #或 python -m pip install --upgrade pip # 如果这个升级命令出现问题 ，可以使用以下命令 easy_install --upgrade pip 查看安装了哪些库 1 pip</description>
+    </item>
+    
+  </channel>
+</rss>

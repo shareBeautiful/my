@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/categories/</link>
+    <description>Recent content in Categories on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Dec 2018 17:54:01 +0800</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/python/</link>
+      <pubDate>Fri, 14 Dec 2018 17:54:01 +0800</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/javascript/</link>
+      <pubDate>Thu, 27 Sep 2018 11:32:11 +0800</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/windows/</link>
+      <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/linux/</link>
+      <pubDate>Thu, 31 May 2018 20:16:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/css/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网络协议</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Mon, 16 Oct 2017 16:04:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>转载文章</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Thu, 21 Sep 2017 15:03:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/php/</link>
+      <pubDate>Thu, 31 Aug 2017 11:22:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>H5</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/h5/</link>
+      <pubDate>Mon, 28 Aug 2017 17:18:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/h5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>读书笔记</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 12 Aug 2017 21:29:06 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/jquery/</link>
+      <pubDate>Thu, 10 Aug 2017 14:27:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>工具/资源</title>
+      <link>https://zhouxiaoxin.gitee.io/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

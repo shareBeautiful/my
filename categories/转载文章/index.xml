@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>转载文章 on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/categories/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/</link>
+    <description>Recent content in 转载文章 on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2017 15:03:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/categories/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>(转)javascript 奇淫巧技44招</title>
+      <link>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</link>
+      <pubDate>Thu, 21 Sep 2017 15:03:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/javascript/javascript-%E5%A5%87%E6%B7%AB%E5%B7%A7%E6%8A%8044%E6%8B%9B%E8%BD%AC/</guid>
+      <description>&lt;h2 id=&#34;1首次为变量赋值时务必使用var关键字&#34;&gt;1、首次为变量赋值时务必使用var关键字&lt;/h2&gt;
+&lt;p&gt;变量没有声明而直接赋值得话，默认会作为一个新的全局变量，要尽量避免使用全局变量。&lt;/p&gt;
+&lt;h2 id=&#34;2使用取代&#34;&gt;2、使用===取代==&lt;/h2&gt;
+&lt;p&gt;==和!=操作符会在需要的情况下自动转换数据类型。但===和!==不会，它们会同时比较值和数据类型，这也使得它们要比==和!=快。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

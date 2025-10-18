@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>正则表达式学习笔记 - vzvixb</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="even" /><meta name="description" content="理论 正则引擎  DFA (Deterministic finite automaton) 确定型有穷自动机 NFA (Non-deterministic finite automaton) 非确定型有穷自动机，大部分都是NFA  DFA引擎不需要进行回溯，所以匹配效率一般情况下要高，但是它并不支持捕获组，于是也就不支持反向引用和$这种形式的引用，也不支持环视(Lookaround)、非贪婪模式等一些NFA引擎特有的特性。
+字符串组成 对于字符串&amp;quot;abc&amp;quot;，是由三个字符“a”、“b”、“c”以及四个位置组成的， 这一点对于正则表达式的匹配原理理解很重要。
+ 首先由字符“a”取得控制权，从位置0开始匹配，由“a”来匹配“a”，匹配成功，控制权交给字符“b”；由于“a”已被“a”匹配，所以“b”从位置1开始尝试匹配，由“b”来匹配“b”，匹配成功，控制权交给“c”；由“c”来匹配“c”，匹配成功。
+ 此时正则表达式匹配完成，报告匹配成功。匹配结果为“abc”，开始位置为0，结束位置为3。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.90.1 with theme even" />
+
+
+<link rel="canonical" href="https://zhouxiaoxin.gitee.io/post/javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="正则表达式学习笔记" />
+<meta property="og:description" content="理论
+正则引擎
+
+DFA (Deterministic finite automaton) 确定型有穷自动机
+NFA (Non-deterministic finite automaton) 非确定型有穷自动机，大部分都是NFA
+
+DFA引擎不需要进行回溯，所以匹配效率一般情况下要高，但是它并不支持捕获组，于是也就不支持反向引用和$这种形式的引用，也不支持环视(Lookaround)、非贪婪模式等一些NFA引擎特有的特性。
+字符串组成
+对于字符串&quot;abc&quot;，是由三个字符“a”、“b”、“c”以及四个位置组成的，
+这一点对于正则表达式的匹配原理理解很重要。
+
+
+首先由字符“a”取得控制权，从位置0开始匹配，由“a”来匹配“a”，匹配成功，控制权交给字符“b”；由于“a”已被“a”匹配，所以“b”从位置1开始尝试匹配，由“b”来匹配“b”，匹配成功，控制权交给“c”；由“c”来匹配“c”，匹配成功。
+
+此时正则表达式匹配完成，报告匹配成功。匹配结果为“abc”，开始位置为0，结束位置为3。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhouxiaoxin.gitee.io/post/javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-02-07T12:23:00+00:00" />
+<meta property="article:modified_time" content="2018-02-07T12:23:00+00:00" />
+
+<meta itemprop="name" content="正则表达式学习笔记">
+<meta itemprop="description" content="理论
+正则引擎
+
+DFA (Deterministic finite automaton) 确定型有穷自动机
+NFA (Non-deterministic finite automaton) 非确定型有穷自动机，大部分都是NFA
+
+DFA引擎不需要进行回溯，所以匹配效率一般情况下要高，但是它并不支持捕获组，于是也就不支持反向引用和$这种形式的引用，也不支持环视(Lookaround)、非贪婪模式等一些NFA引擎特有的特性。
+字符串组成
+对于字符串&quot;abc&quot;，是由三个字符“a”、“b”、“c”以及四个位置组成的，
+这一点对于正则表达式的匹配原理理解很重要。
+
+
+首先由字符“a”取得控制权，从位置0开始匹配，由“a”来匹配“a”，匹配成功，控制权交给字符“b”；由于“a”已被“a”匹配，所以“b”从位置1开始尝试匹配，由“b”来匹配“b”，匹配成功，控制权交给“c”；由“c”来匹配“c”，匹配成功。
+
+此时正则表达式匹配完成，报告匹配成功。匹配结果为“abc”，开始位置为0，结束位置为3。"><meta itemprop="datePublished" content="2018-02-07T12:23:00+00:00" />
+<meta itemprop="dateModified" content="2018-02-07T12:23:00+00:00" />
+<meta itemprop="wordCount" content="6257">
+<meta itemprop="keywords" content="正则表达," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="正则表达式学习笔记"/>
+<meta name="twitter:description" content="理论
+正则引擎
+
+DFA (Deterministic finite automaton) 确定型有穷自动机
+NFA (Non-deterministic finite automaton) 非确定型有穷自动机，大部分都是NFA
+
+DFA引擎不需要进行回溯，所以匹配效率一般情况下要高，但是它并不支持捕获组，于是也就不支持反向引用和$这种形式的引用，也不支持环视(Lookaround)、非贪婪模式等一些NFA引擎特有的特性。
+字符串组成
+对于字符串&quot;abc&quot;，是由三个字符“a”、“b”、“c”以及四个位置组成的，
+这一点对于正则表达式的匹配原理理解很重要。
+
+
+首先由字符“a”取得控制权，从位置0开始匹配，由“a”来匹配“a”，匹配成功，控制权交给字符“b”；由于“a”已被“a”匹配，所以“b”从位置1开始尝试匹配，由“b”来匹配“b”，匹配成功，控制权交给“c”；由“c”来匹配“c”，匹配成功。
+
+此时正则表达式匹配完成，报告匹配成功。匹配结果为“abc”，开始位置为0，结束位置为3。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archs</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Cates</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/pages/runoob/">
+        <li class="mobile-menu-item">runoob</li>
+      </a><a href="/pages/98wubi/">
+        <li class="mobile-menu-item">98wubi</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Cates</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/runoob/">runoob</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/98wubi/">98wubi</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">正则表达式学习笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-02-07 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/"> 工具/资源 </a>
+            </div>
+          <span class="more-meta"> 约 6257 字 </span>
+          <span class="more-meta"> 预计阅读 13 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#理论">理论</a>
+      <ul>
+        <li><a href="#正则引擎">正则引擎</a></li>
+        <li><a href="#字符串组成">字符串组成</a></li>
+        <li><a href="#占有字符和零宽度">占有字符和零宽度</a></li>
+      </ul>
+    </li>
+    <li><a href="#控制权和传动">控制权和传动</a></li>
+    <li><a href="#回溯法原理">回溯法原理</a></li>
+    <li><a href="#语法">语法</a>
+      <ul>
+        <li><a href="#什么是正则表达式">什么是正则表达式：</a></li>
+        <li><a href="#修饰符igm">修饰符i,g,m</a></li>
+        <li><a href="#字符类">字符类</a></li>
+        <li><a href="#预定义类">预定义类</a></li>
+        <li><a href="#范围类">范围类</a></li>
+        <li><a href="#量词">量词</a></li>
+        <li><a href="#贪婪与惰性">贪婪与惰性</a></li>
+        <li><a href="#分支结构">分支结构</a></li>
+        <li><a href="#分组">分组</a></li>
+        <li><a href="#环视look-around">环视(Look Around）</a></li>
+        <li><a href="#优先级">优先级</a></li>
+        <li><a href="#字符串支持正则方法">字符串支持正则方法</a></li>
+        <li><a href="#4-转换数组的split方法">4. 转换数组的split方法</a></li>
+        <li><a href="#正则对象属性">正则对象属性</a></li>
+        <li><a href="#命名捕获">命名捕获</a></li>
+        <li><a href="#exec和match">exec和match</a></li>
+        <li><a href="#exec方法详解">exec()方法详解</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用正则">常用正则</a>
+      <ul>
+        <li><a href="#校验数字的表达式">校验数字的表达式</a></li>
+        <li><a href="#校验字符的表达式">校验字符的表达式</a></li>
+        <li><a href="#特殊需求表达式">特殊需求表达式</a></li>
+      </ul>
+    </li>
+    <li><a href="#手册">手册</a></li>
+    <li><a href="#推荐">推荐</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="理论">理论</h2>
+<h3 id="正则引擎">正则引擎</h3>
+<ol>
+<li>DFA (Deterministic finite automaton) 确定型有穷自动机</li>
+<li>NFA (Non-deterministic finite automaton) 非确定型有穷自动机，大部分都是NFA</li>
+</ol>
+<p>DFA引擎不需要进行回溯，所以匹配效率一般情况下要高，但是它并不支持捕获组，于是也就不支持反向引用和$这种形式的引用，也不支持环视(Lookaround)、非贪婪模式等一些NFA引擎特有的特性。</p>
+<h3 id="字符串组成">字符串组成</h3>
+<p>对于字符串&quot;abc&quot;，是由三个字符“a”、“b”、“c”以及四个位置组成的，
+这一点对于正则表达式的匹配原理理解很重要。</p>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%AD%97%E7%AC%A6%E5%92%8C%E4%BD%8D%E7%BD%AE.jpg" alt="正则字符串"></p>
+<blockquote>
+<p>首先由字符“a”取得控制权，从位置0开始匹配，由“a”来匹配“a”，匹配成功，控制权交给字符“b”；由于“a”已被“a”匹配，所以“b”从位置1开始尝试匹配，由“b”来匹配“b”，匹配成功，控制权交给“c”；由“c”来匹配“c”，匹配成功。</p>
+</blockquote>
+<p>此时正则表达式匹配完成，报告匹配成功。匹配结果为“abc”，开始位置为0，结束位置为3。</p>
+<h3 id="占有字符和零宽度">占有字符和零宽度</h3>
+<p><strong>占有字符</strong><br>
+正则表达式匹配过程中，如果子表达式匹配到的是字符内容，而非位置，
+并被保存到最终的匹配结果中，那么就认为这个子表达式是<strong>占有字符</strong>；</p>
+<blockquote>
+<p>比如<code>/ha/</code>（匹配ha）就是占有字符的；</p>
+</blockquote>
+<p><strong>零宽度</strong><br>
+如果子表达式匹配的仅仅是位置，或者匹配的内容并不保存到最终的匹配结果中，
+那么就认为这个子表达式是<strong>零宽度</strong>的。</p>
+<blockquote>
+<p>比如<code>/read(?=ing)/</code>（匹配reading，但是只将read放入结果中</p>
+</blockquote>
+<p><strong>占有字符是互斥的，零宽度是非互斥的</strong>。也就是一个字符，同一时间只能由一个子表达式匹配，
+而一个位置，却可以同时由多个零宽度的子表达式匹配。</p>
+<blockquote>
+<p>比如<code>/aa/</code>是匹配不了a的,但是位置是可以多个匹配的，比如<code>/\b\ba/</code>是可以匹配a的</p>
+</blockquote>
+<h2 id="控制权和传动">控制权和传动</h2>
+<ul>
+<li>控制权是指哪一个正则子表达式</li>
+<li>传动是指正则引擎的一种机制，传动装置将定位正则从字符串的哪里开始匹配</li>
+</ul>
+<p>正则的匹配过程，通常情况下都是由一个子表达式（可能为一个普通字符、元字符或元字符序列组成）
+取得控制权，从字符串的某一位置开始尝试匹配，一个子表达式开始尝试匹配的位置，
+是从前一子表达匹配成功的结束位置开始的。</p>
+<p>而对于整个表达式来说，通常是由字符串位置0开始尝试匹配的。
+如果在位置0开始的尝试，匹配到字符串某一位置时整个表达式匹配失败，
+那么引擎会使正则向前传动，整个表达式从位置1开始重新尝试匹配，
+依此类推，直到报告匹配成功或尝试到最后一个位置后报告匹配失败。</p>
+<h2 id="回溯法原理">回溯法原理</h2>
+<p>回溯是影响正则表达式效率的一个非常重要的原因，
+我们在进行正则表达式匹配时，一定要尽可能的避免回溯。
+<strong>定义</strong><br>
+回溯法就是指正则表达式从头开始依次进行匹配，如果匹配到某个特定的情况下时，
+发现无法继续进行匹配，需要回退到之前匹配的结果，选择另一个分支继续进行匹配中的现象。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">reg</span> <span class="o">=</span> <span class="sr">/ab{1,3}c/</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;abbc&#39;</span><span class="p">;</span>
+<span class="c1">// 第1步：匹配/a/，得到&#39;a&#39;
+</span><span class="c1">// 第2步：匹配/ab{1}/，得到&#39;ab&#39;
+</span><span class="c1">// 第3步：匹配/ab{2}/，得到&#39;abb&#39;
+</span><span class="c1">// 第4步：匹配/ab{3}/，匹配失败，需要进行回溯
+</span><span class="c1">// 第5步：回溯到/ab{2}/,继续匹配/ab{2}c/，得到&#39;abbc&#39;
+</span><span class="c1">// 第6步：正则表达式匹配完成，得到&#39;abbc&#39;
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>产生场景</strong></p>
+<ol>
+<li>贪婪量词（贪婪匹配）</li>
+<li>惰性量词（非贪婪匹配）</li>
+<li>分支结构（分支匹配）</li>
+</ol>
+<blockquote>
+<p>如果我们把正则表达式的各个分支都整理成一棵树的话，
+正则表达式的匹配其实就是一个深度优先搜索算法。
+而回溯其实就是在进行深度优先匹配失败后的后退正常操作逻辑。</p>
+</blockquote>
+<h2 id="语法">语法</h2>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/%E6%AD%A3%E5%88%99%E8%AF%AD%E6%B3%95.png" alt="正则语法"></p>
+<h3 id="什么是正则表达式">什么是正则表达式：</h3>
+<p>正则表达式(Regular Expression)是一种匹配模式，描述的是一串文本的特征 使用单个字符串描述、匹配一系列符合某个语句规则的字符
+按照某种规则去匹配符合条件的字符串，
+两种方法实例 RegExp</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 字面量 
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">reg</span> <span class="o">=</span> <span class="sr">/\bis\b/</span><span class="p">;</span>
+<span class="c1">// 构造函数
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">reg</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">&#34;\\bis\\b&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="修饰符igm">修饰符i,g,m</h3>
+<ul>
+<li>g: global全文搜索，</li>
+<li>i: ignore case忽略大小写</li>
+<li>m: multiple lines 多行搜索</li>
+</ul>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E4%BF%AE%E9%A5%B0%E7%AC%A6.png" alt="正则修饰符"></p>
+<h3 id="字符类">字符类</h3>
+<p>由2中字符组成</p>
+<ul>
+<li>原义文本字符</li>
+<li>元字符</li>
+<li>元字符是在正则表达式中有特殊含义的非字母符号</li>
+<li><code>* + ? ^ $ . | \ () {} []</code>
+<code>[]</code></li>
+<li>我们可以使用元字符[] 来构建一个简单的类</li>
+<li>所谓类是指符合某些特性的对象，一个泛指，而不是特指某个字符</li>
+<li>表达式[abc]把字符a或b或c归为一类</li>
+</ul>
+<h3 id="预定义类">预定义类</h3>
+<p>预定义： <code>\d \D . \s \S \w \W</code><br>
+边界： <code>^ $ \b \B</code>
+零宽断言： <code>(?=exp)</code>，<code>(?!exp)</code></p>
+<blockquote>
+<p>注意这个表达式仅仅匹配一个位置，只是它对于这个位置的右边有要求，
+而右边的东西是不会被放进结果的</p>
+</blockquote>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/%E8%BD%AC%E4%B9%89%E7%B1%BB.png" alt="预定义类"></p>
+<h3 id="范围类">范围类</h3>
+<p>[0-9] [a-z-] [A-Z] [0-9a-zA-Z_]</p>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/%E8%8C%83%E5%9B%B4%E7%B1%BB.png" alt="范围类"></p>
+<h3 id="量词">量词</h3>
+<p><code>* + ? {}</code></p>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/%E9%87%8F%E8%AF%8D.png" alt="量词类"></p>
+<h3 id="贪婪与惰性">贪婪与惰性</h3>
+<p>贪婪模式：匹配尽可能多的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;12345678&#34;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\d{3,6}/g</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">)</span> <span class="c1">// &#34;X78&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><p>非贪婪模式：匹配尽可能少的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;12345678&#34;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\d{3,6}?/g</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">)</span> <span class="c1">// &#34;XX78&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><p>贪婪模式只要是在后面 加上 ? 既可变成惰性模式</p>
+<h3 id="分支结构">分支结构</h3>
+<p>当一个字符串的某一子串具有多种可能时，采用分支结构来匹配，
+“|”表示多个子表达式之间“或”的关系，“|”是以()限定范围的，
+如果在“|”的左右两侧没有()来限定范围，那么它的作用范围即为“|”左右两侧整体。</p>
+<h3 id="分组">分组</h3>
+<h4 id="捕获组capture-group">捕获组（Capture Group）</h4>
+<p>用() 可以到达分组的功能，使量词作用于分组</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;abc,abc,abcabcabc,aabc&#34;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(abc){3}/g</span><span class="p">,</span> <span class="s2">&#34;X&#34;</span><span class="p">)</span>  <span class="c1">// &#34;abc,abc,X,aabc&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><p>使用 | 或 作用与分组</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;ByronCasper&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/Byron|Casper/g</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">)</span> <span class="c1">// &#39;XX&#39;
+</span><span class="c1"></span><span class="s1">&#39;ByronsperByrCasper&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/Byr(on|Ca)sper/g</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">)</span> <span class="c1">// &#39;XX&#39;
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="非捕获组">非捕获组</h4>
+<p><strong>忽略分组：</strong><br>
+不希望捕获某些分组，只需要在分组内加上 ?: 就可以</p>
+<h4 id="正向引用">正向引用</h4>
+<p>用$1,$2,$3来捕获分组匹配的对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;2018-02-06&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(\d{4})-(\d{2})-(\d{2})/g</span><span class="p">,</span> <span class="s1">&#39;$2/$3/$1&#39;</span><span class="p">)</span> <span class="c1">// &#34;02-06-2018&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="反向引用">反向引用</h4>
+<p><code>(a|b)\1</code>在匹配&quot;abaa&quot;时，匹配成功，匹配到的结果是“aa”。后面的<code>\1</code>代表
+<code>()</code>中匹配的内容</p>
+<h3 id="环视look-around">环视(Look Around）</h3>
+<p><strong>环视只进行子表达式的匹配，匹配内容不计入最终的匹配结果，是零宽度的。</strong></p>
+<ul>
+<li>正则表达式从文本头部向尾部开始解析，文本尾部方向成为 “前”，文本头部就叫 “后”</li>
+<li>前瞻就是正则表达式匹配到规则的时候，向前检查是否符合断言,后顾/后瞻方向相反</li>
+<li>JavaScript 不支持后顾</li>
+<li>符合和不符合特定的断言称为 肯定/正向 匹配和 否定/负向 匹配</li>
+</ul>
+<p>正向前瞻 <code>exp(?=assert)</code>
+负向前瞻 <code>exp(?!assert)</code>
+正向后顾 <code>exp(?&lt;=assert)</code>
+负向后顾 <code>exp(?&lt;!assert)</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分类</th>
+<th style="text-align:left">代码/语法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>捕获</strong></td>
+<td style="text-align:left"><code>(exp)</code></td>
+<td style="text-align:left">匹配exp,并捕获文本到自动命名的组里</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>(?&lt;name&gt;exp)</code></td>
+<td style="text-align:left">匹配exp,并捕获文本到名称为name的组里，也可以写成(?&lsquo;name&rsquo;exp)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>(?:exp)</code></td>
+<td style="text-align:left">匹配exp,不捕获匹配的文本，也不给此分组分配组号</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>零宽断言</strong></td>
+<td style="text-align:left"><code>(?=exp)</code></td>
+<td style="text-align:left">匹配exp表达式前面的位置</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>(?&lt;=exp)</code></td>
+<td style="text-align:left">匹配exp表达式后面的位置</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>(?!exp)</code></td>
+<td style="text-align:left">匹配不是exp表达式前面的位置</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>(?&lt;!exp)</code></td>
+<td style="text-align:left">匹配不是exp表达式后面的位置</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>注释</strong></td>
+<td style="text-align:left"><code>(?#comment)</code></td>
+<td style="text-align:left">用于提供注释让人阅读,这种类型的分组不对正则表达式的处理产生任何影响</td>
+</tr>
+</tbody>
+</table>
+<p><code>(?!1)\d+</code>在匹配“123”时，匹配成功，匹配的结果为“23”</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;a235v6&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\w(?=\d)/g</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>  <span class="c1">// &#39;X2*X5X6&#39;
+</span><span class="c1"></span><span class="s1">&#39;a235vv&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\w(?!\d)/g</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>  <span class="c1">// &#39;a23XXX&#39;
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="优先级">优先级</h3>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="优先级"></p>
+<h3 id="字符串支持正则方法">字符串支持正则方法</h3>
+<h4 id="1-匹配捕获的match方法">1. 匹配捕获的match方法</h4>
+<p>在字符串上调用match方法，本质上和在正则上调用exec相同，
+但是match方法返回的结果数组是没有input和index属性的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">str</span><span class="o">=</span><span class="s2">&#34;Reading and Writing&#34;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">pattern</span><span class="o">=</span><span class="sr">/\b([a-zA-Z]+)ing\b/g</span><span class="p">;</span> 
+<span class="c1">//在String上调用match
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">matches</span><span class="o">=</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">pattern</span><span class="p">);</span>
+<span class="c1">// [&#34;Reading&#34;, &#34;Writing&#34;]
+</span><span class="c1">//等价于在RegExp上调用exec
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">matches</span><span class="o">=</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="c1">// [&#34;Reading&#34;, &#34;Read&#34;, index: 0, input: &#34;Reading and Writing&#34;, groups: undefined]
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>groups属性保存的是命名捕获组内容的对象</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;2018-08-01&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">reg</span> <span class="o">=</span> <span class="sr">/(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})/</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">reg</span><span class="p">).</span><span class="nx">groups</span><span class="p">)</span>
+<span class="c1">//直接输出groups对象 {year:2018,month:08,day:01}
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2-返回索引的search方法">2. 返回索引的search方法</h4>
+<p>接受的参数和match方法相同。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">str</span><span class="o">=</span><span class="s2">&#34;I am reading.&#34;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">pattern</span><span class="o">=</span><span class="sr">/\b([a-zA-Z]+)ing\b/g</span><span class="p">;</span> 
+
+<span class="kd">var</span> <span class="nx">matches</span><span class="o">=</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span> <span class="c1">// 5
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">pos</span><span class="o">=</span><span class="nx">str</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">pattern</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pos</span><span class="p">);</span> <span class="c1">// 5
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3-查找并替换的replace方法">3. 查找并替换的replace方法</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;hello,world,hello,world&#39;</span>
+<span class="nx">reg</span> <span class="o">=</span> <span class="sr">/w\w+?d/g</span>
+<span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reg</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">);</span>
+<span class="c1">// hello,ab,hello,ab
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-转换数组的split方法">4. 转换数组的split方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;ab-cd/ef.gh&#39;</span><span class="p">;</span>
+<span class="nx">reg</span> <span class="o">=</span> <span class="sr">/[-\/\.]/</span>
+<span class="nx">res</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">reg</span><span class="p">)</span>
+<span class="c1">// [&#34;ab&#34;, &#34;cd&#34;, &#34;ef&#34;, &#34;gh&#34;]
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="正则对象属性">正则对象属性</h3>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/RegExp%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7.png" alt="">
+reg.exec()
+reg.match()
+reg.global全文搜索，
+reg.ignoreCase
+reg.multiline
+reg.source
+reg.test();
+reg.lastIndex() // 当前匹配结果的最后一个字符的下一字符
+str.replace()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">while</span><span class="p">(</span><span class="nx">reg</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">consoel</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reg</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="http://p09g3b06f.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95.png" alt=""></p>
+<h3 id="命名捕获">命名捕获</h3>
+<blockquote>
+<p>命名捕获分组自身的语法是 <code>(?&lt;name&gt;...)</code>，比普通的分组多了一个 <code>?&lt;name&gt;</code> 字样，其中 <code>name</code> 的起法就和你平时起变量名一样即可（不过在这里关键字也可用）。
+反向引用一个命名分组的语法是 <code>\k&lt;name&gt;</code>，注意命名分组同样可以通过数字索引来反向引用</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="sr">/(?&lt;foo&gt;a)\k&lt;foo&gt;\1/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;aaa&#34;</span><span class="p">)</span> <span class="c1">// true
+</span><span class="c1"></span><span class="s2">&#34;abc&#34;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?&lt;foo&gt;a)/</span><span class="p">,</span> <span class="s2">&#34;$&lt;foo&gt;-&#34;</span><span class="p">)</span> <span class="c1">// &#34;a-bc&#34;，同样 $1 仍然可用
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="exec和match">exec和match</h3>
+<blockquote>
+<p><code>exec()</code> 和 <code>match()</code> 方法返回的匹配结果数组上多了一个 <code>groups</code> 属性，里面存放着每个命名分组的名称以及它们匹配到的值，利用 ES6 的解构语法，可以方便的提取出想要的字段。注意这个 <code>groups</code> 属性只有在当前正则里至少存在一个命名分组的前提下才会存在，比如：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="sr">/(\d{2})-(\d{2})-(\d{4})/</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="s2">&#34;04-25-2017&#34;</span><span class="p">).</span><span class="nx">groups</span> <span class="c1">// undefined，因为没有命名分组
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="exec方法详解">exec()方法详解</h3>
+<blockquote>
+<p>该函数通过对指定你的字符串进行一次匹配检测，
+获取字符串中的第一个与正则表达式的内容，并且将匹配的内容和子匹配的结果存放在返回数组中</p>
+</blockquote>
+<p><strong>没有g修饰符</strong><br>
+在非全局匹配模式下，此函数的作用和match()函数是一样的，只能够在字符串中匹配一次，
+如果没有找到匹配的字符串，那么返回null，否则将返回一个数组。</p>
+<p>数组的第0个元素存储的是匹配字符串，第1个元素存放的是第一个分组(子表达式)匹配的字符串，第2个元素存放的是第分组(子表达式)匹配的字符串，依次类推。同时此数组还包括两个对象属性，index属性声明的是匹配字符串的起始字符在要匹配的完整字符串中的位置，input属性声明的是对要匹配的完整字符串的引用。</p>
+<p><strong>具有g修饰符</strong><br>
+在全局匹配模式下，此函数返回值同样是一个数组，并且也只能够在字符串中匹配一次。<br>
+不过此时，此函数一般会和lastIndex属性匹配使用，
+此函数会在lastIndex属性指定的字符处开始检索字符串，
+当exec()找到与表达式相匹配的字符串时，
+在匹配后，它将lastIndex 属性设置为匹配字符串的最后一个字符的下一个位置。<br>
+可以通过反复调用exec()函数遍历字符串中的所有匹配，当exec()函数再也找不到匹配的文本时，
+它将返回null，并把lastIndex 属性重置为0。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">//匹配所有ing结尾的单词
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">str</span><span class="o">=</span><span class="s2">&#34;Reading and Writing&#34;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">pattern</span><span class="o">=</span><span class="sr">/\b([a-zA-Z]+)ing\b/g</span><span class="p">;</span> 
+<span class="kd">var</span> <span class="nx">matches</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="nx">matches</span><span class="o">=</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">)){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">matches</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span> <span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+<span class="c1">//循环2次输出
+</span><span class="c1">//0 Reading Read
+</span><span class="c1">//12 Writing Writ
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="常用正则">常用正则</h2>
+<h3 id="校验数字的表达式">校验数字的表达式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">数字：^[0-9]*$
+n 位的数字：^\d{n}$
+至少 n 位的数字：^\d{n,}$
+m-n 位的数字：^\d{m,n}$
+零和非零开头的数字：^(0|[1-9][0-9]*)$
+非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]{1,2})?$
+带 1-2 位小数的正数或负数：^(\-)?\d+(\.\d{1,2})?$
+正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$
+有两位小数的正实数：^[0-9]+(.[0-9]{2})?$
+有 1~3 位小数的正实数：^[0-9]+(.[0-9]{1,3})?$
+非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*){1,3}$ 或 ^\+?[1-9][0-9]*$
+非零的负整数：^\-[1-9][]0-9&#34;*$ 或 ^-[1-9]\d*$
+非负整数：^\d+$ 或 ^[1-9]\d*|0$
+非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$
+非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$
+非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$
+正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$
+负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$
+浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="校验字符的表达式">校验字符的表达式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">汉字：^[\u4e00-\u9fa5]{0,}$
+
+英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]{4,40}$
+
+长度为 3-20 的所有字符：^.{3,20}$
+
+由 26 个英文字母组成的字符串：^[A-Za-z]+$
+
+由 26 个大写英文字母组成的字符串：^[A-Z]+$
+
+由 26 个小写英文字母组成的字符串：^[a-z]+$
+
+由数字和 26 个英文字母组成的字符串：^[A-Za-z0-9]+$
+
+由数字、26 个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w{3,20}$
+
+中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$
+
+中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$
+
+可以输入含有 ^%&amp;&#39;,;=?$&#34; 等字符：[^%&amp;&#39;,;=?$\x22]+
+
+禁止输入含有 ~ 的字符：[^~\x22]+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="特殊需求表达式">特殊需求表达式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Email 地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$
+
+域名：[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?
+
+InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$
+
+手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
+
+电话号码（&#34;XXX-XXXXXXX&#34;、&#34;XXXX-XXXXXXXX&#34;、&#34;XXX-XXXXXXX&#34;、&#34;XXX-XXXXXXXX&#34;、&#34;XXXXXXX&#34;和&#34;XXXXXXXX）：^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$
+
+国内电话号码（0511-4405222、021-87888822）：\d{3}-\d{8}|\d{4}-\d{7}
+
+身份证号（15 位、18 位数字）： 15 位： ^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$ 18 位： ^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$
+
+短身份证号码（数字、字母 x 结尾）：^([0-9]){7,18}(x|X)?$ 或 ^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$
+
+帐号是否合法（字母开头，允许 5-16 字节，允许字母数字下划线）：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+
+密码（以字母开头，长度在 6~18 之间，只能包含字母、数字和下划线）：^[a-zA-Z]\w{5,17}$
+
+强密码（必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间）：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$
+
+日期格式：^\d{4}-\d{1,2}-\d{1,2}
+
+一年的 12 个月（01～09 和 1～12）：^(0?[1-9]|1[0-2])$
+
+一个月的 31 天（01～09 和 1～31）：^((0?[1-9])|((1|2)[0-9])|30|31)$
+
+xml 文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$
+
+双字节字符：[^\x00-\xff] （包括汉字在内，可以用来计算字符串的长度（一个双字节字符长度计 2，ASCII字符计 1））
+
+空白行的正则表达式：\n\s*\r （可以用来删除空白行）
+
+HTML 标记的正则表达式：&lt;(\S*?)[^&gt;]*&gt;.*?&lt;/\1&gt;|&lt;.*? /&gt; （网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力）
+
+首尾空白字符的正则表达式：^\s*|\s*$或(^\s*)|(\s*$) （可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等），非常有用的表达式）
+
+校验金额（2位小数）： ^[0-9]+(.[0-9]{2})?$
+
+腾讯 QQ 号：[1-9][0-9]{4,} （腾讯 QQ 号从 10000 开始）
+
+中国邮政编码：[1-9]\d{5}(?!\d) （中国邮政编码为 6 位数字）
+
+IP 地址：\d+\.\d+\.\d+\.\d+ （提取IP地址时有用）
+
+IP 地址：((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))
+
+IPV6 地址： (([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))
+
+URL 链接： ((http|ftp|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&amp;%_\./-~-]*)?
+
+EMOJI 表情: ([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])
+
+检查 IE 版本 ^.*MSIE [5-8](?:\\.[0-9]+)?(?!.*Trident\\/[5-9]\\.0).*$
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="手册">手册</h2>
+<p><a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html">正则手册</a></p>
+<h2 id="推荐">推荐</h2>
+<p><a href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a><br>
+<a href="https://segmentfault.com/a/1190000008088937">JS正则表达式一条龙讲解，从原理和语法到JS正则、ES6正则扩展，最后再到正则实践思路</a><br>
+<a href="https://blog.csdn.net/lxcnn">正则表达式教程</a><br>
+<a href="http://www.zjmainstay.cn/">正则表达式入门教程和高级教程</a><br>
+<a href="https://segmentfault.com/a/1190000013075245">60分钟正则从入门到深入</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">even</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-02-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE/">正则表达</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">计算机知识要点</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/1/vscode%E6%8F%92%E4%BB%B6/">
+            <span class="next-text nav-default">vscode插件</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://zhouxiaoxin.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">even</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

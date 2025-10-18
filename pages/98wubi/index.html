@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" rel="stylesheet">
+	<title></title>
+	<style type="text/css">
+		@font-face {
+			font-family: zgFont;
+			src: url("./98WB.woff2") format("opentype");
+		}
+
+		#app .table-container {
+			font-family: zgFont;
+		}
+
+		[v-cloak] {
+			display: none
+		}
+
+		.search {
+			font-size: 25px;
+			text-align: center;
+		}
+
+		.table thead {
+			font-size: 16px;
+		}
+
+		.table thead th,
+		.table tbody td {
+			padding: 10px 3px
+		}
+
+		.table tbody {
+			font-size: 25px;
+		}
+		.pinyin {
+			font-size: 16px;
+			vertical-align: middle !important;
+			max-width: 110px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<h5>输入单字或多字查询，98五笔编码</h5>
+		<input type="search" class="form-control search" placeholder="搜索..." v-model="keyword" class="text-center"
+			@input="search" />
+
+		<div class="table-container">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>序</th>
+						<th>字</th>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四码</th>
+						<th>编码</th>
+						<th>拼音</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(item,idx) in currList" :key="idx">
+						<td>{{idx+1}}</td>
+						<td>{{item[0]}}</td>
+						<td>{{item[1]}}</td>
+						<td>{{item[2]}}</td>
+						<td>{{item[3]}}</td>
+						<td>{{item[4]}}</td>
+						<td class="text-primary">{{item[5]}}</td>
+						<td class="pinyin text-danger">{{item[6]}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.0/vue.min.js"></script>
+<script src="98wubi.js"></script>
+<script type="text/javascript" defer>
+		new Vue({
+			'el': '#app',
+			'data': {
+				list: list,
+				pinyin: pinyin,
+				keyword: '',
+				currList: {},
+				t: null,
+			},
+
+			methods: {
+				search: function () {
+					clearTimeout(this.t)
+					this.t = setTimeout(() => {
+						if (this.keyword && '\u4e00' <= this.keyword && this.keyword <= '\u9fef') {
+							var keys = this.keyword.split('');
+							keys = Array.from(new Set(keys))
+							this.currList = []
+							for (var i = 0; i < keys.length; i++) {
+								this.list.some((item,idx) => {
+									if (item[0] === keys[i]) {
+										item.push(this.pinyin[idx])
+										this.currList.push(item)
+										return true;
+									}
+								})
+							}
+
+						} else {
+
+						}
+					}, 500)
+
+
+				}
+			},
+			mounted: function () {
+
+
+			}
+		})
+</script>
+
+</html>

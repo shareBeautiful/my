@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>12-Scrapy框架 - vzvixb</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="even" /><meta name="description" content="Scrapy框架 Scrapy安装 windows安装 简单安装 1 pip install scrapy 如果上面出错,从pypi网上下载相应版本的whl文件 lxml PyQpenSSL Twisted Pywin32 Scrapy 然后安装 1 pip" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.90.1 with theme even" />
+
+
+<link rel="canonical" href="https://zhouxiaoxin.gitee.io/post/python/12.scrapy%E6%A1%86%E6%9E%B6%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="12-Scrapy框架" />
+<meta property="og:description" content="Scrapy框架 Scrapy安装 windows安装 简单安装 1 pip install scrapy 如果上面出错,从pypi网上下载相应版本的whl文件 lxml PyQpenSSL Twisted Pywin32 Scrapy 然后安装 1 pip" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhouxiaoxin.gitee.io/post/python/12.scrapy%E6%A1%86%E6%9E%B6%E7%AC%94%E8%AE%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-09-08T16:00:56+08:00" />
+<meta property="article:modified_time" content="2018-09-08T16:00:56+08:00" />
+
+<meta itemprop="name" content="12-Scrapy框架">
+<meta itemprop="description" content="Scrapy框架 Scrapy安装 windows安装 简单安装 1 pip install scrapy 如果上面出错,从pypi网上下载相应版本的whl文件 lxml PyQpenSSL Twisted Pywin32 Scrapy 然后安装 1 pip"><meta itemprop="datePublished" content="2018-09-08T16:00:56+08:00" />
+<meta itemprop="dateModified" content="2018-09-08T16:00:56+08:00" />
+<meta itemprop="wordCount" content="2411">
+<meta itemprop="keywords" content="爬虫,Python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="12-Scrapy框架"/>
+<meta name="twitter:description" content="Scrapy框架 Scrapy安装 windows安装 简单安装 1 pip install scrapy 如果上面出错,从pypi网上下载相应版本的whl文件 lxml PyQpenSSL Twisted Pywin32 Scrapy 然后安装 1 pip"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archs</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Cates</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/pages/runoob/">
+        <li class="mobile-menu-item">runoob</li>
+      </a><a href="/pages/98wubi/">
+        <li class="mobile-menu-item">98wubi</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Cates</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/runoob/">runoob</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/98wubi/">98wubi</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">12-Scrapy框架</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-09-08 </span>
+        <div class="post-category">
+            <a href="/categories/python/"> Python </a>
+            </div>
+          <span class="more-meta"> 约 2411 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#scrapy框架">Scrapy框架</a></li>
+    <li><a href="#scrapy安装">Scrapy安装</a>
+      <ul>
+        <li><a href="#windows安装">windows安装</a></li>
+        <li><a href="#linux安装">Linux安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#scrapy基本用法">Scrapy基本用法</a>
+      <ul>
+        <li><a href="#目标站点">目标站点</a></li>
+        <li><a href="#流程框架">流程框架</a></li>
+        <li><a href="#定义itmespy文件">定义itmes.py文件</a></li>
+        <li><a href="#编写spider">编写spider</a></li>
+        <li><a href="#编写pipelinepy处理item">编写pipeline.py处理item</a></li>
+        <li><a href="#配置settingspy文件">配置settings.py文件</a></li>
+        <li><a href="#保存">保存</a></li>
+      </ul>
+    </li>
+    <li><a href="#scrapy命令行详解">Scrapy命令行详解</a>
+      <ul>
+        <li><a href="#创建项目">创建项目</a></li>
+        <li><a href="#生成spider">生成spider</a></li>
+        <li><a href="#全局的命令">全局的命令</a></li>
+        <li><a href="#项目的命令">项目的命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#scrapy中选择器用法">Scrapy中选择器用法</a></li>
+    <li><a href="#scrapy中spiders用法">Scrapy中Spiders用法</a></li>
+    <li><a href="#scrapy中item-pipeline用法">Scrapy中item Pipeline用法</a>
+      <ul>
+        <li><a href="#例子">例子</a></li>
+        <li><a href="#激活项目pipelines">激活项目pipelines</a></li>
+      </ul>
+    </li>
+    <li><a href="#scrapy中download-middleware用法">Scrapy中Download Middleware用法</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="scrapy框架">Scrapy框架</h2>
+<h2 id="scrapy安装">Scrapy安装</h2>
+<h3 id="windows安装">windows安装</h3>
+<p><strong>简单安装</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pip install scrapy
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>如果上面出错,从pypi网上下载相应版本的whl文件</p>
+</blockquote>
+<ol>
+<li>lxml</li>
+<li>PyQpenSSL</li>
+<li>Twisted</li>
+<li>Pywin32</li>
+<li>Scrapy</li>
+</ol>
+<p><strong>然后安装</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pip install whell
+</code></pre></td></tr></table>
+</div>
+</div><p>最后依次pip安装上面下载的whl文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pip install /path/xxx.whl
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="linux安装">Linux安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pip install scrapy
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="scrapy基本用法">Scrapy基本用法</h2>
+<h3 id="目标站点">目标站点</h3>
+<blockquote>
+<p><a href="http://quotes.toscrape.com/">http://quotes.toscrape.com/</a></p>
+</blockquote>
+<h3 id="流程框架">流程框架</h3>
+<p>抓取第一页&ndash;&gt; 获取内容和下一页连接&ndash;&gt; 翻页爬取&ndash;&gt; 保存爬取结果</p>
+<h3 id="定义itmespy文件">定义itmes.py文件</h3>
+<p><em>items.py</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">scrapy</span>
+
+<span class="k">class</span> <span class="nc">QuoteItem</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+    <span class="c1"># define the fields for your item here like:</span>
+    <span class="c1"># name = scrapy.Field()</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="编写spider">编写spider</h3>
+<p><em>quotes.py</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">scrapy</span>
+<span class="kn">from</span> <span class="nn">quotetutorial.items</span> <span class="kn">import</span> <span class="n">QuoteItem</span>
+
+<span class="k">class</span> <span class="nc">QuotesSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;quotes&#39;</span>
+    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;quotes.toscrape.com&#39;</span><span class="p">]</span>
+    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://quotes.toscrape.com/&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="c1"># print(response.text)</span>
+        <span class="n">quotes</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.quote&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">quote</span> <span class="ow">in</span> <span class="n">quotes</span><span class="p">:</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">QuoteItem</span><span class="p">()</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">quote</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.text::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+            <span class="n">author</span> <span class="o">=</span> <span class="n">quote</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.author::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+            <span class="n">tags</span> <span class="o">=</span> <span class="n">quote</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.tags .tag::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+
+            <span class="n">items</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span>
+            <span class="n">items</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">author</span>
+            <span class="n">items</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tags</span>
+            <span class="k">yield</span> <span class="n">items</span>
+        <span class="nb">next</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.pager .next a::attr(href)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="nb">next</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="编写pipelinepy处理item">编写pipeline.py处理item</h3>
+<p><em>pipeline.py</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scrapy.exceptions</span> <span class="kn">import</span> <span class="n">DropItem</span>
+<span class="kn">import</span> <span class="nn">pymongo</span>
+
+<span class="k">class</span> <span class="nc">TextPipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="mi">50</span>
+
+    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">:</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;...&#39;</span>
+            <span class="k">return</span> <span class="n">item</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">DropItem</span><span class="p">(</span><span class="s1">&#39;Missing&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">MongoPipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mongo_url</span><span class="p">,</span> <span class="n">mongo_db</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mongo_url</span> <span class="o">=</span> <span class="n">mongo_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mongo_db</span> <span class="o">=</span> <span class="n">mongo_db</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_crawler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">crawler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">mongo_url</span> <span class="o">=</span> <span class="n">crawler</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MONGO_URL&#39;</span><span class="p">),</span>
+            <span class="n">mongo_db</span> <span class="o">=</span> <span class="n">crawler</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MONGO_DB&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mongo_url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mongo_db</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">item</span>
+    
+    <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;关闭mongo数据库&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置settingspy文件">配置settings.py文件</h3>
+<p><em>settings.py</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">MONGO_URL</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+<span class="n">MONGO_DB</span> <span class="o">=</span> <span class="s1">&#39;quotestutorial&#39;</span>
+
+<span class="n">ITEM_PIPELINES</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;quotetutorial.pipelines.TextPipeline&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+   <span class="s1">&#39;quotetutorial.pipelines.MongoPipeline&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>进入调试命令</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy shell quotes.toscrape.com
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>运行命令</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy crawl quotes
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="保存">保存</h3>
+<p><strong>json</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy crawl quotes -o quotes.json
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>json line</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy crawl quotes -o quotes.jl
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>csv</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy crawl quotes -o quotes.csv
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>其它格式</strong></p>
+<ul>
+<li>xml</li>
+<li>pickle</li>
+<li>marshal</li>
+</ul>
+<p><strong>远程ftp保存文件</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy crawl quotes -o ftp://user:pass@ftp.example.com/path/quotes.csv
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="scrapy命令行详解">Scrapy命令行详解</h2>
+<h3 id="创建项目">创建项目</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy startproject myproject
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="生成spider">生成spider</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy genspider baidu www.baidu.com
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="全局的命令">全局的命令</h3>
+<p><strong>1.startproject</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy startproject myproject
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>2.genspider</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy genspider -l <span class="c1">#列出创建spider模板</span>
+scrapy genspider -t crawl zhihu www.zhihu.com <span class="c1"># -t 制定使用哪个模板</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>3.settings 获取配置信息</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy settings --get MONGO_URL
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>4.runspider 运行spider</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> spider
+scrapy runspider quotes.py
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>5.shell 命令行交互模式</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy shell https://www.zhihu.com/
+scrapy  
+request
+response
+view<span class="o">(</span>response<span class="o">)</span>
+response.text
+response.headers
+response.css<span class="o">(</span><span class="s1">&#39;title::text&#39;</span><span class="o">)</span>.extract_first<span class="o">()</span>
+exit<span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>6.fetch 把指定的网页下载下来显示在控制台</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy fetch http://www.baidu.com/
+scrapy fetch --nolog  http://www.baidu.com/
+scrapy fetch --nolog --headers http://www.baidu.com/ <span class="c1"># 响应头信息</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>7.view 把指定的网页下载成文件，用浏览器打开</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy view https://www.zhihu.com/
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>8.version 输出版本</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy version
+scrapy version -v <span class="c1"># 输出依赖库的版本</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="项目的命令">项目的命令</h3>
+<p><strong>1.crawl 用老运行spider</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy crawl zhihu
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>2.check 检查</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy check
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>3.list 返回项目下所有spider名称</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy list 
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>4.edit 用vim打开指定的spider</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy edit zhihu
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>5.parse 输出解析的items</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy parse http://quotes.toscrage.com --callback<span class="o">(</span>-c<span class="o">)</span> parse
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>6.bench 测试当前的爬取速度</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy bench
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="scrapy中选择器用法">Scrapy中选择器用法</h2>
+<p>response.selector
+<strong>xpath</strong> <br>
+<strong>css</strong><br>
+<strong>正则</strong><br>
+返回结果是元素组成的list</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scrapy shell https://doc.scrapy.org/en/latest/_static/selectors-sample1.html
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">response</span> <span class="kn">import</span> <span class="n">selector</span>
+
+<span class="c1"># 获取文本</span>
+<span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//title/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+<span class="n">selector</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;title::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+
+<span class="c1"># 获取属性</span>
+<span class="n">response</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//img/@src&#39;</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;img::attr(src)&#39;</span><span class="p">)</span>
+
+<span class="c1"># 查找属性名包含‘image’的a标签</span>
+<span class="n">response</span><span class="o">.</span><span class="n">xapth</span><span class="p">(</span><span class="s1">&#39;//a[contains(@href, &#34;image&#34;)]&#39;</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;a[href*=image]&#39;</span><span class="p">)</span>
+
+<span class="c1"># 正则</span>
+<span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;a::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">re</span><span class="p">(</span><span class="s1">&#39;Name\:(.*)&#39;</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;a::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">re_first</span><span class="p">(</span><span class="s1">&#39;Name\:(.*)&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>extract_first()</strong><br>
+可以设置默认值，如果查找不到输出默认值
+resquest.css('.a').extract_first(default='')</p>
+<h2 id="scrapy中spiders用法">Scrapy中Spiders用法</h2>
+<ol>
+<li>以初始的URL初始化Request，并设置回调函数。 当该request下载完毕并返回时，将生成response，并作为参数传给该回调函数spider中初始的request是通过调用 start_requests() 来获取的。 start_requests() 读取 start_urls 中的URL， 并以 parse 为回调函数生成 Request 。</li>
+<li>在回调函数内分析返回的(网页)内容，返回 Item 对象或者 Request 或者一个包括二者的可迭代容器。 返回的Request对象之后会经过Scrapy处理，下载相应的内容，并调用设置的callback函数(函数可相同)。</li>
+<li>在回调函数内，您可以使用 选择器(Selectors) (您也可以使用BeautifulSoup, lxml 或者您想用的任何解析器) 来分析网页内容，并根据分析的数据生成item。</li>
+<li>最后，由spider返回的item将被存到数据库(由某些 Item Pipeline 处理)或使用 Feed exports 存入到文件中。</li>
+</ol>
+<p><strong>name</strong><br>
+定义spider名字的字符串,其必须是唯一的
+<strong>allowed_domains</strong><br>
+可选。包含了spider允许爬取的域名(domain)列表(list)。 当 OffsiteMiddleware 启用时， 域名不在列表中的URL不会被跟进。
+<strong>start_urls</strong><br>
+URL列表。当没有制定特定的URL时，spider将从该列表中开始进行爬取。 因此，第一个被获取到的页面的URL将是该列表之一。 后续的URL将会从获取到的数据中提取。
+<strong>custom_settings</strong><br>
+覆盖项目的settings的配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">custom_settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;DEFAULT_REQUEST_HEADERS&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s1">&#39;Accept-Language&#39;</span><span class="p">:</span> <span class="s1">&#39;en&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>from_crawler</strong><br>
+可以拿到settings里的配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mongo_url</span><span class="p">,</span> <span class="n">mongo_db</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mongo_url</span> <span class="o">=</span> <span class="n">mongo_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mongo_db</span> <span class="o">=</span> <span class="n">mongo_db</span>
+
+<span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_crawler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">crawler</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+        <span class="n">mongo_url</span> <span class="o">=</span> <span class="n">crawler</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MONGO_URL&#39;</span><span class="p">),</span>
+        <span class="n">mongo_db</span> <span class="o">=</span> <span class="n">crawler</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MONGO_DB&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>start_requests()</strong><br>
+该方法必须返回一个可迭代对象(iterable)。该对象包含了spider用于爬取的第一个Request。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_post</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>parse(response)</strong><br>
+当response没有指定回调函数时，该方法是Scrapy处理下载的response的默认方法。
+<strong>make_requests_from_url(url)</strong><br>
+该方法接受一个URL并返回用于爬取的 Request 对象。 该方法在初始化request时被 start_requests() 调用，也被用于转化url为request。</p>
+<p><strong>close(reason)</strong><br>
+spider关闭的时候会被调用</p>
+<h2 id="scrapy中item-pipeline用法">Scrapy中item Pipeline用法</h2>
+<ul>
+<li>清理HTML数据</li>
+<li>验证爬取的数据(检查item包含某些字段)</li>
+<li>查重(并丢弃)</li>
+<li>将爬取结果保存到数据库中
+<strong>process_item(self, item, spider)</strong><br>
+每个item pipeline组件都需要调用该方法，这个方法必须返回一个 Item (或任何继承类)对象， 或是抛出 DropItem 异常，被丢弃的item将不会被之后的pipeline组件所处理。</li>
+</ul>
+<p><strong>open_spider(self, spider)</strong><br>
+当spider被开启时，这个方法被调用。</p>
+<p><strong>close_spider(self, spider)</strong><br>
+当spider被关闭时，这个方法被调用</p>
+<p><strong>from_crawler(cls, crawler))</strong>
+一个类方法获取scrapy项目中的settings设置</p>
+<h3 id="例子">例子</h3>
+<p><strong>价格处理</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scrapy.exceptions</span> <span class="kn">import</span> <span class="n">DropItem</span>
+
+<span class="k">class</span> <span class="nc">PricePipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">vat_factor</span> <span class="o">=</span> <span class="mf">1.15</span>
+
+    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;price_excludes_vat&#39;</span><span class="p">]:</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">vat_factor</span>
+            <span class="k">return</span> <span class="n">item</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DropItem</span><span class="p">(</span><span class="s2">&#34;Missing price in </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">item</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>保存为json文件</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">class</span> <span class="nc">JsonWriterPipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;items.jl&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">item</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">item</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>保存到mongodb</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pymongo</span>
+
+<span class="k">class</span> <span class="nc">MongoPipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">collection_name</span> <span class="o">=</span> <span class="s1">&#39;scrapy_items&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mongo_uri</span><span class="p">,</span> <span class="n">mongo_db</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mongo_uri</span> <span class="o">=</span> <span class="n">mongo_uri</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mongo_db</span> <span class="o">=</span> <span class="n">mongo_db</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_crawler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">crawler</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">mongo_uri</span><span class="o">=</span><span class="n">crawler</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MONGO_URI&#39;</span><span class="p">),</span>
+            <span class="n">mongo_db</span><span class="o">=</span><span class="n">crawler</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MONGO_DATABASE&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mongo_uri</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mongo_db</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">collection_name</span><span class="p">]</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">item</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>过滤重复的数据</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">rom</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">exceptions</span> <span class="kn">import</span> <span class="nn">DropItem</span>
+
+<span class="k">class</span> <span class="nc">DuplicatesPipeline</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ids_seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ids_seen</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DropItem</span><span class="p">(</span><span class="s2">&#34;Duplicate item found: </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">item</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ids_seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">item</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="激活项目pipelines">激活项目pipelines</h3>
+<p>在settints.py中添加<br>
+后面的数字越小优先级越高</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">ITEM_PIPELINES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;myproject.pipelines.PricePipeline&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s1">&#39;myproject.pipelines.JsonWriterPipeline&#39;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="scrapy中download-middleware用法">Scrapy中Download Middleware用法</h2>
+<p><strong>process_request(request, spider)</strong><br>
+代理ip</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="k">class</span> <span class="nc">ProxyMiddleware</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Using Proxy&#39;</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;proxy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://221.228.17.172:8181&#39;</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>process_response()</strong></p>
+<p><strong>process_exception(request, exception ,spider)</strong></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">even</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-09-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+          <a href="/tags/python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/python/11.selenium&#43;chrome%E7%88%AC%E5%8F%96%E6%B7%98%E5%AE%9D/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">11-分析Ajax请求并抓取今日头条街拍美图</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/python/01.%E5%B8%B8%E7%94%A8%E7%88%AC%E8%99%AB%E5%BA%93/">
+            <span class="next-text nav-default">01-常用爬虫库</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://zhouxiaoxin.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">even</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

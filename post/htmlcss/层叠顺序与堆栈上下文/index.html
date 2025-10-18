@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>层叠顺序与堆栈上下文 - vzvixb</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="even" /><meta name="description" content="简要 在CSS的盒模型中，所有的元素除了可以再屏幕上自由摆放外，还可以沿着 z轴 进行摆放，特别是当元素为止互相重叠的时候，了解z轴的摆放顺序非常重要。使用 z-index 可以改变元素在 z轴 的上下层级，但是 z-index 具体是如何影响元素的层级呢？为什么有时候它并不生效。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.90.1 with theme even" />
+
+
+<link rel="canonical" href="https://zhouxiaoxin.gitee.io/post/htmlcss/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="层叠顺序与堆栈上下文" />
+<meta property="og:description" content="简要
+在CSS的盒模型中，所有的元素除了可以再屏幕上自由摆放外，还可以沿着 z轴 进行摆放，特别是当元素为止互相重叠的时候，了解z轴的摆放顺序非常重要。使用 z-index 可以改变元素在 z轴 的上下层级，但是 z-index 具体是如何影响元素的层级呢？为什么有时候它并不生效。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhouxiaoxin.gitee.io/post/htmlcss/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-12-11T10:19:00+00:00" />
+<meta property="article:modified_time" content="2017-12-11T10:19:00+00:00" />
+
+<meta itemprop="name" content="层叠顺序与堆栈上下文">
+<meta itemprop="description" content="简要
+在CSS的盒模型中，所有的元素除了可以再屏幕上自由摆放外，还可以沿着 z轴 进行摆放，特别是当元素为止互相重叠的时候，了解z轴的摆放顺序非常重要。使用 z-index 可以改变元素在 z轴 的上下层级，但是 z-index 具体是如何影响元素的层级呢？为什么有时候它并不生效。"><meta itemprop="datePublished" content="2017-12-11T10:19:00+00:00" />
+<meta itemprop="dateModified" content="2017-12-11T10:19:00+00:00" />
+<meta itemprop="wordCount" content="1841">
+<meta itemprop="keywords" content="CSS," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="层叠顺序与堆栈上下文"/>
+<meta name="twitter:description" content="简要
+在CSS的盒模型中，所有的元素除了可以再屏幕上自由摆放外，还可以沿着 z轴 进行摆放，特别是当元素为止互相重叠的时候，了解z轴的摆放顺序非常重要。使用 z-index 可以改变元素在 z轴 的上下层级，但是 z-index 具体是如何影响元素的层级呢？为什么有时候它并不生效。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archs</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Cates</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/pages/runoob/">
+        <li class="mobile-menu-item">runoob</li>
+      </a><a href="/pages/98wubi/">
+        <li class="mobile-menu-item">98wubi</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Cates</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/runoob/">runoob</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/98wubi/">98wubi</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">层叠顺序与堆栈上下文</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-11 </span>
+        <div class="post-category">
+            <a href="/categories/css/"> CSS </a>
+            </div>
+          <span class="more-meta"> 约 1841 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简要">简要</a></li>
+    <li><a href="#层叠顺序stacking-level">层叠顺序（stacking level）</a></li>
+    <li><a href="#堆栈上下文stacking-context">堆栈上下文（stacking context）</a></li>
+    <li><a href="#fixed定位失效">fixed定位失效</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="简要">简要</h2>
+<p>在CSS的盒模型中，所有的元素除了可以再屏幕上自由摆放外，还可以沿着 <strong>z轴</strong> 进行摆放，特别是当元素为止互相重叠的时候，了解z轴的摆放顺序非常重要。使用 <code>z-index</code> 可以改变元素在 z轴 的上下层级，但是 <code>z-index</code> 具体是如何影响元素的层级呢？为什么有时候它并不生效。</p>
+<h2 id="层叠顺序stacking-level">层叠顺序（stacking level）</h2>
+<blockquote>
+</blockquote>
+<p><code>z-index</code> 看上去其实很简单，根据 <code>z-index</code> 的高低决定层叠的优先级，实则深入进去，会发现内有乾坤。
+看看下面这题，定义两个 div A 和 B，被包括在同一个父 div 标签下。HTML结构如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;inline-block&#34;</span><span class="p">&gt;</span>#divA display:inline-block<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;float&#34;</span><span class="p">&gt;</span> #divB float:left<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>它们的 <code>CSS</code> 定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span><span class="p">{</span>
+    <span class="k">position</span><span class="p">:</span><span class="kc">relative</span><span class="p">;</span>
+    <span class="k">background</span><span class="p">:</span><span class="mh">#ddd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">float</span><span class="p">{</span>
+    <span class="k">float</span><span class="p">:</span><span class="kc">left</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span><span class="kc">deeppink</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">inline-block</span><span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span><span class="kc">inline-block</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span><span class="kc">yellowgreen</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="p">:</span><span class="mi">-100</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>拥有共同父容器的两个 <code>DIV</code> 重叠在一起，是 display:inline-block 叠在上面，还是<code>float:left</code> 叠在上面？
+注意这里 <code>DOM</code> 的顺序，是先生成 <code>display:inline-block</code> ，再生成 <code>float:left</code> 。当然也可以把两个的 DOM 顺序调转如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;float&#34;</span><span class="p">&gt;</span> #divB float:left<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;inline-block&#34;</span><span class="p">&gt;</span>#divA display:inline-block<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><!-- raw HTML omitted -->会发现，无论顺序如何，始终是 <code>display:inline-block</code> 的 <code>div</code> 叠在上方。<!-- raw HTML omitted --></strong></p>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87%5CA%E5%92%8CB%E9%A1%BA%E5%BA%8F.png" alt="demo"></p>
+<p><a href="http://codepen.io/Chokcoco/pen/gwLYNy">Demo</a>
+这里其实是涉及了所谓的层叠水平（stacking level)，有一张图可以很好的诠释：
+<img src="http://p09g3b06f.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%A0%86%E6%A0%88%E4%B8%8A%E4%B8%8B%E6%96%87/css%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F.png" alt="七成层叠水平"></p>
+<p><code>inline-blcok</code> 的 stacking level 比之 <code>float</code> 要高，所以无论 DOM 的先后顺序都堆叠在上面。</p>
+<p>按照 W3官方 的说法，准确的 7 层为：</p>
+<ol>
+<li>形成堆叠上下文环境的元素的背景与边框</li>
+<li>拥有负 z-index 的子堆叠上下文元素 （负的越高越堆叠层级越低）</li>
+<li>正常流式布局，非 inline-block，无 position 定位（static除外）的子元素</li>
+<li>无 position 定位（static除外）的 float 浮动元素</li>
+<li>正常流式布局， inline-block元素，无 position 定位（static除外）的子元素（包括 display:table 和 display:inline ）</li>
+<li>拥有 z-index:0 的子堆叠上下文元素</li>
+<li>拥有正 z-index: 的子堆叠上下文元素（正的越低越堆叠层级越低）</li>
+</ol>
+<blockquote>
+<p>所以我们的两个 div 的比较是基于上面所列出来的 4 和 5 。5 的 stacking level 更高，所以叠得更高。</p>
+</blockquote>
+<h2 id="堆栈上下文stacking-context">堆栈上下文（stacking context）</h2>
+<p>上面的比较是基于两个 <code>div</code> 都没有形成 堆叠上下文 这个为基础的。下面我们修改一下题目，给两个 <code>div</code> ，增加一个 <code>opacity</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span><span class="p">{</span>
+    <span class="k">position</span><span class="p">:</span><span class="kc">relative</span><span class="p">;</span>
+    <span class="k">background</span><span class="p">:</span><span class="mh">#ddd</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">opacity</span><span class="p">:</span><span class="mf">0.9</span><span class="p">;</span> <span class="err">//</span> <span class="err">注意这里，增加一个</span> <span class="err">opacity</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">float</span><span class="p">{</span>
+    <span class="k">float</span><span class="p">:</span><span class="kc">left</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span><span class="kc">deeppink</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">inline-block</span><span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span><span class="kc">inline-block</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span><span class="kc">yellowgreen</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="p">:</span><span class="mi">-100</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="http://codepen.io/Chokcoco/pen/qaqdqA">Demo</a></p>
+<blockquote>
+</blockquote>
+<p>会看到，inline-block 的 div 不再一定叠在 float 的 div 之上，而是和 HTML 代码中 DOM 的堆放顺序有关，后添加的 div 会 叠在先添加的 div 之上。</p>
+<blockquote>
+</blockquote>
+<p>这里的关键点在于，添加的 opacity:0.9 这个让两个 div 都生成了 stacking context（堆叠上下文） 的概念。此时，要对两者进行层叠排列，就需要 z-index ，z-index 越高的层叠层级越高。</p>
+<blockquote>
+</blockquote>
+<p>堆叠上下文是HTML元素的三维概念，这些HTML元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的 z 轴上延伸，HTML 元素依据其自身属性按照优先级顺序占用层叠上下文的空间。概念比较抽象，简单理解，<strong>记住 生成了 Stacking Context 的元素会影响该元素的层叠关系与定位关系。</strong></p>
+<p>如何触发一个元素形成 堆叠上下文 ？方法如下，摘自 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context">MDN</a>：</p>
+<ol>
+<li>根元素 (HTML),</li>
+<li>z-index 值不为 &ldquo;auto&quot;的 绝对/相对定位，</li>
+<li>一个 z-index 值不为 &ldquo;auto&quot;的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex，</li>
+<li>opacity 属性值小于 1 的元素（参考 the specification for opacity），</li>
+<li>transform 属性值不为 &ldquo;none&quot;的元素，</li>
+<li>mix-blend-mode 属性值不为 &ldquo;normal&quot;的元素，</li>
+<li>filter值不为“none”的元素，</li>
+<li>perspective值不为“none”的元素，</li>
+<li>isolation 属性被设置为 &ldquo;isolate&quot;的元素，</li>
+<li>position: fixed</li>
+<li>在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值</li>
+<li>-webkit-overflow-scrolling 属性被设置 &ldquo;touch&quot;的元素</li>
+</ol>
+<p>所以，上面我们给两个 <code>div</code> 添加 <code>opacity</code> 属性的目的就是为了形成 <code>stacking context</code>。也就是说添加 <code>opacity</code> 替换成上面列出来这些属性都是可以达到同样的效果。</p>
+<p>在层叠上下文中，其子元素同样也按照上面解释的规则进行层叠。 特别值得一提的是，其子元素的 <code>z-index</code> 值只在父级层叠上下文中有意义。意思就是父元素的 <code>z-index</code> 低于父元素另一个同级元素，子元素 <code>z-index</code>再高也没用。</p>
+<p>理解上面的 <code>stacking-level</code> 与 <code>stacking-context</code> 是理解 CSS 的层叠顺序的关键。</p>
+<h2 id="fixed定位失效">fixed定位失效</h2>
+<p>当元素祖先的 transform 属性非 none 时，容器由视口改为该祖先。</p>
+<ol>
+<li>
+<p>任何非 none 的 transform 值都会导致一个堆叠上下文（Stacking Context）和包含块（Containing Block）的创建。</p>
+</li>
+<li>
+<p>由于堆叠上下文的创建，该元素会影响其子元素的固定定位。设置了 position:fixed 的子元素将不会基于 viewport 定位，而是基于这个父元素。</p>
+</li>
+<li>
+<p>transform 属性值不为 none 的元素</p>
+</li>
+<li>
+<p>设置了 transform-style: preserve-3d 的元素</p>
+</li>
+<li>
+<p>perspective 值不为 none 的元素</p>
+</li>
+<li>
+<p>在 will-change 中指定了任意 CSS 属性</p>
+</li>
+</ol>
+<p>原文地址:http://www.cnblogs.com/coco1s/p/5899089.html</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">even</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-12-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/css/">CSS</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/htmlcss/css%E4%BB%A3%E7%A0%81%E6%AE%B5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">css代码段</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/1/http%E5%8D%8F%E8%AE%AE%E8%BD%AC/">
+            <span class="next-text nav-default">HTTP协议(转)</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://zhouxiaoxin.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">even</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

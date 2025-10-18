@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>07-PyQuery库详解 - vzvixb</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="even" /><meta name="description" content="PyQuery库详解 强大又灵活的网页解析库。如果你觉得正则写起来太麻烦，如果你觉得BeautifulSoup语法太难记，如果你熟悉jQuer" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.90.1 with theme even" />
+
+
+<link rel="canonical" href="https://zhouxiaoxin.gitee.io/post/python/07.pyquery%E5%BA%93%E8%AF%A6%E8%A7%A3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="07-PyQuery库详解" />
+<meta property="og:description" content="PyQuery库详解 强大又灵活的网页解析库。如果你觉得正则写起来太麻烦，如果你觉得BeautifulSoup语法太难记，如果你熟悉jQuer" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhouxiaoxin.gitee.io/post/python/07.pyquery%E5%BA%93%E8%AF%A6%E8%A7%A3/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-09-08T16:00:56+08:00" />
+<meta property="article:modified_time" content="2018-09-08T16:00:56+08:00" />
+
+<meta itemprop="name" content="07-PyQuery库详解">
+<meta itemprop="description" content="PyQuery库详解 强大又灵活的网页解析库。如果你觉得正则写起来太麻烦，如果你觉得BeautifulSoup语法太难记，如果你熟悉jQuer"><meta itemprop="datePublished" content="2018-09-08T16:00:56+08:00" />
+<meta itemprop="dateModified" content="2018-09-08T16:00:56+08:00" />
+<meta itemprop="wordCount" content="618">
+<meta itemprop="keywords" content="爬虫,Python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="07-PyQuery库详解"/>
+<meta name="twitter:description" content="PyQuery库详解 强大又灵活的网页解析库。如果你觉得正则写起来太麻烦，如果你觉得BeautifulSoup语法太难记，如果你熟悉jQuer"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archs</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Cates</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/pages/runoob/">
+        <li class="mobile-menu-item">runoob</li>
+      </a><a href="/pages/98wubi/">
+        <li class="mobile-menu-item">98wubi</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Cates</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/runoob/">runoob</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/98wubi/">98wubi</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">07-PyQuery库详解</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-09-08 </span>
+        <div class="post-category">
+            <a href="/categories/python/"> Python </a>
+            </div>
+          <span class="more-meta"> 约 618 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pyquery库详解">PyQuery库详解</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#初始化pyquery对象">初始化pyquery对象</a></li>
+    <li><a href="#xmlsn问题">xmlsn问题</a></li>
+    <li><a href="#基本css选择器">基本CSS选择器</a>
+      <ul>
+        <li><a href="#查找元素">查找元素</a></li>
+        <li><a href="#遍历">遍历</a></li>
+        <li><a href="#伪类">伪类</a></li>
+      </ul>
+    </li>
+    <li><a href="#获取信息">获取信息</a></li>
+    <li><a href="#dom操作">DOM操作</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="pyquery库详解">PyQuery库详解</h2>
+<blockquote>
+<p>强大又灵活的网页解析库。如果你觉得正则写起来太麻烦，如果你觉得BeautifulSoup语法太难记，如果你熟悉jQuery的语法，那么PyQuery就是你的绝佳选择</p>
+</blockquote>
+<h2 id="安装">安装</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">pip install pyquery
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="初始化pyquery对象">初始化pyquery对象</h2>
+<blockquote>
+</blockquote>
+<p>doc = pq(html)
+doc = pq(url=&ldquo;<a href="http://www.baidu.com/%22">http://www.baidu.com/&quot;</a>)
+doc = pq(filename=&lsquo;demo.html&rsquo;)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+
+<span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;&lt;div&gt;
+</span><span class="s1">    &lt;ul&gt;
+</span><span class="s1">        &lt;li class=&#34;item-0&#34;&gt;first item&lt;/li&gt;
+</span><span class="s1">        &lt;li class=&#34;item-1&#34;&gt;&lt;a href=&#34;link2.html&#34;&gt;second item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">        &lt;li class=&#34;item-0 active&#34;&gt;&lt;a href=&#34;link3.html&#34;&gt;
+</span><span class="s1">            &lt;span&gt;third item&lt;/span&gt;
+</span><span class="s1">        &lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">        &lt;li class=&#34;item-1 active&#34;&gt;&lt;a href=&#34;link4.html&#34;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">        &lt;li class=&#34;item-0&#34;&gt;&lt;a href=&#34;link5.html&#34;&gt;first item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">    &lt;/ul&gt;
+</span><span class="s1">&lt;/div&gt;
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">li</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="c1"># 或 a = li.find(&#39;a&#39;)</span>
+<span class="n">active</span> <span class="o">=</span> <span class="n">li</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">active</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="xmlsn问题">xmlsn问题</h2>
+<p>如果获取的html代码有xmlns解析出错</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/1999/xhtml&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以替换属性或使用
+doc.remove_namespaces()函数来处理</p>
+<h2 id="基本css选择器">基本CSS选择器</h2>
+<ol>
+<li>标签选择器</li>
+<li>类选择器</li>
+<li>id选择器</li>
+<li>伪类选择器</li>
+</ol>
+<h3 id="查找元素">查找元素</h3>
+<ol>
+<li>子元素</li>
+</ol>
+<blockquote>
+<ul>
+<li>pq.find()</li>
+</ul>
+</blockquote>
+<ul>
+<li>pq.chidren() 直接子元素</li>
+</ul>
+<ol start="2">
+<li>父元素</li>
+</ol>
+<blockquote>
+<p>-pq.parent() 直接父元素</p>
+</blockquote>
+<ul>
+<li>pq.parents() 所有父元素</li>
+<li>pq.closest('.active') 返回第一个active的父元素</li>
+</ul>
+<ol start="3">
+<li>兄弟元素</li>
+</ol>
+<blockquote>
+</blockquote>
+<ol>
+<li>pq.siblings('.active') 获取所有类名为active相邻的标签</li>
+<li>pq.next() 获取下一个标签</li>
+<li>pq.next_all('.active') 获取所有后面带active的标签</li>
+<li>pq.prev() 获取上一个标签</li>
+<li>pq.prev_all('.active') 获取所有前面带active的标签</li>
+</ol>
+<h3 id="遍历">遍历</h3>
+<p>items()方法，返回一个迭代器generator
+使用each(),map()</p>
+<h3 id="伪类">伪类</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:first-child&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:last-child&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:nth-child(2)&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:nth-child(2n)&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:gt(2)&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:lt(2)&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:contains(second)&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="获取信息">获取信息</h2>
+<p>获取属性</p>
+<ul>
+<li>pq.attr(&lsquo;href&rsquo;)</li>
+<li>pq.attr.href</li>
+</ul>
+<p>获取文本</p>
+<ul>
+<li>pq.text() 获取文本</li>
+<li>pq.html() 获取html标签</li>
+</ul>
+<h2 id="dom操作">DOM操作</h2>
+<ol>
+<li>pq.addClass(&lsquo;active&rsquo;) 添加active类</li>
+<li>pq.removeClass(&lsquo;active&rsquo;) 删除active类</li>
+<li>pq.attr(&lsquo;href&rsquo;,&lsquo;demo.html&rsquo;) 添加属性</li>
+<li>pq.css({&lsquo;color&rsquo;: &lsquo;red&rsquo;,&lsquo;width&rsquo;:&lsquo;200px&rsquo;}) # 添加样式</li>
+<li>pq.remove() # 删除元素</li>
+<li>removeAttr() 删除属性</li>
+</ol>
+<p>其它：</p>
+<ul>
+<li>append(), appendTo(),after(),insertAfter(),insertBefore</li>
+<li>pq.toggleClass(),</li>
+<li>hasClass() 返回 布尔值</li>
+<li>each(fun)</li>
+<li>map(fun)</li>
+<li>filter(selector)</li>
+<li>filter(fun) #</li>
+<li>hide(),show()</li>
+<li>is_(selector) 返回布尔值</li>
+<li>not_(selector)</li>
+<li>val()</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">d</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="s1">&#39;&lt;p class=&#34;hello&#34;&gt;Hi there&lt;/p&gt;&lt;p&gt;Bye&lt;/p&gt;&lt;br /&gt;&#39;</span><span class="p">)</span>
+<span class="n">d</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">this</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="c1"># [&#39;Hi&#39;, &#39;there&#39;, &#39;Bye&#39;]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="s1">&#39;&lt;p class=&#34;hello&#34;&gt;Hi&lt;/p&gt;&lt;p&gt;Bye&lt;/p&gt;&#39;</span><span class="p">)</span>
+<span class="n">d</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">this</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Hi&#39;</span><span class="p">)</span>
+<span class="c1"># [&lt;p.hello&gt;]</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">even</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-09-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+          <a href="/tags/python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/python/06.beautifulsoup%E8%AF%A6%E8%A7%A3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">06-BeautifulSoup详解</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/python/08.selenium%E5%BA%93%E8%AF%A6%E8%A7%A3/">
+            <span class="next-text nav-default">08-Selenium库详解</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://zhouxiaoxin.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">even</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

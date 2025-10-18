@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>计算机知识要点 - vzvixb</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="even" /><meta name="description" content=" CPU的核心数，线程数 应用程序的多进程和多线程 串行并行和并发，同步和异步  " /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.90.1 with theme even" />
+
+
+<link rel="canonical" href="https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="计算机知识要点" />
+<meta property="og:description" content="
+CPU的核心数，线程数
+应用程序的多进程和多线程
+串行并行和并发，同步和异步
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhouxiaoxin.gitee.io/post/linux/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-05-31T20:16:00+00:00" />
+<meta property="article:modified_time" content="2018-05-31T20:16:00+00:00" />
+
+<meta itemprop="name" content="计算机知识要点">
+<meta itemprop="description" content="
+CPU的核心数，线程数
+应用程序的多进程和多线程
+串行并行和并发，同步和异步
+
+"><meta itemprop="datePublished" content="2018-05-31T20:16:00+00:00" />
+<meta itemprop="dateModified" content="2018-05-31T20:16:00+00:00" />
+<meta itemprop="wordCount" content="1805">
+<meta itemprop="keywords" content="Linux,异步," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="计算机知识要点"/>
+<meta name="twitter:description" content="
+CPU的核心数，线程数
+应用程序的多进程和多线程
+串行并行和并发，同步和异步
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archs</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Cates</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/pages/runoob/">
+        <li class="mobile-menu-item">runoob</li>
+      </a><a href="/pages/98wubi/">
+        <li class="mobile-menu-item">98wubi</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Cates</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/runoob/">runoob</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/98wubi/">98wubi</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">计算机知识要点</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-31 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> Linux </a>
+            </div>
+          <span class="more-meta"> 约 1805 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cpu与核心">cpu与核心</a></li>
+    <li><a href="#进程和线程">进程和线程</a></li>
+    <li><a href="#串行并发与并行">串行，并发与并行</a></li>
+    <li><a href="#多核下线程数量选择">多核下线程数量选择</a></li>
+    <li><a href="#同步和异步">同步和异步</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <ul>
+<li>CPU的核心数，线程数</li>
+<li>应用程序的多进程和多线程</li>
+<li>串行并行和并发，同步和异步</li>
+</ul>
+<p><img src="http://p09g3b06f.bkt.clouddn.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A6%81%E7%82%B9/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90.jpg" alt="计算机组成"></p>
+<h2 id="cpu与核心">cpu与核心</h2>
+<p><strong>物理核心</strong>
+物理核数量=cpu数(机子上装的cpu的数量) * 每个cpu的核心数</p>
+<p><strong>虚拟核</strong></p>
+<ul>
+<li>
+<p>所谓的4核8线程，4核指的是物理核心。通过intel超线程技术，用一个物理核模拟两个虚拟核，每个核两个线程，总数为8线程。</p>
+</li>
+<li>
+<p>在操作系统看来是8个核，但是实际上是4个物理核。</p>
+</li>
+<li>
+<p>通过超线程技术可以实现单个物理核实现线程级别的并行计算，但是比不上性能两个物理核。</p>
+</li>
+</ul>
+<p><strong>单核cpu和多核cpu</strong></p>
+<ul>
+<li>都是一个cpu，不同的是每个cpu上的核心数</li>
+<li>多核cpu是多个单核cpu的替代方案，多核cpu减小了体积，同时也减少了功耗</li>
+<li>一个核心只能同时执行一个线程</li>
+</ul>
+<h2 id="进程和线程">进程和线程</h2>
+<p><strong>进程</strong></p>
+<ul>
+<li>进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同。</li>
+<li>进程是操作系统进行资源（包括cpu、内存、磁盘IO等）分配的最小单位，进程与进程是独立</li>
+<li>进程是应用程序的执行实例，每个进程是由私有的虚拟地址空间、代码、数据和其它各种系统资源组成</li>
+</ul>
+<p><strong>线程</strong></p>
+<ul>
+<li>线程是cpu调度和分配的基本单位，一个进程至少一个主线程</li>
+<li>我们打开的微信，浏览器都是一个进程</li>
+<li>进程可能有多个子任务，比如微信要接受消息，发送消息，这些子任务就是线程。</li>
+<li>资源分配给进程，线程共享进程资源。</li>
+<li>进程之间是相互独立的，不共享内存和数据，线程之间内存和数据是通用的</li>
+</ul>
+<p><strong>线程切换</strong></p>
+<ul>
+<li>cpu给线程分配时间片(也就是分配给线程的时间)，执行完时间片后会切换都另一个线程。</li>
+<li>切换之前会保存线程的状态，下次时间片再给这个线程时才能知道当前状态。</li>
+<li>从保存线程A的状态再到切换到线程B时，重新加载线程B的状态的这个过程就叫上下文切换。</li>
+<li>而上下切换时会消耗大量的cpu时间。</li>
+</ul>
+<p><strong>线程和进程开销</strong></p>
+<ul>
+<li>上下文切换消耗</li>
+<li>线程创建和消亡的开销</li>
+<li>线程需要保存维持线程本地栈，会消耗内存</li>
+<li>进程要分配好多资源(cpu,寄存器，文件，内存，io设备等)所以开销大</li>
+</ul>
+<p><strong>总结</strong>
+进程就是包换上下文切换的程序执行时间总和 = CPU加载上下文+CPU执行+CPU保存上下文。进程的颗粒度太大，每次都要有上下的调入，保存，调出。如果我们把进程比喻为一个运行在电脑上的软件，那么一个软件的执行不可能是一条逻辑执行的，必定有多个分支和多个程序段，就好比要实现程序A，实际分成 a，b，c等多个块组合而成。那么这里具体的执行就可能变成：程序A得到CPU =》CPU加载上下文，开始执行程序A的a小段，然后执行A的b小段，然后再执行A的c小段，最后CPU保存A的上下文。这里a，b，c的执行是共享了A的上下文，CPU在执行的时候没有进行上下文切换的。这里的a，b，c就是线程，也就是说线程是共享了进程的上下文环境，的更为细小的CPU时间段。</p>
+<h2 id="串行并发与并行">串行，并发与并行</h2>
+<p><strong>串行</strong></p>
+<ul>
+<li>单线程执行多个任务，执行时一个执行完再执行另一个。</li>
+<li>比喻：吃完饭再看电视</li>
+</ul>
+<p><strong>并发</strong></p>
+<ul>
+<li>多个线程在单个核心运行，同一时间一个线程运行，系统不停切换线程，看起来像同时运行，实际上是线程不停切换。</li>
+<li>在程序中我们开辟的线程数量大于cpu的数量，那么就会</li>
+<li>比喻：一会儿去吃饭，一会儿去看电视</li>
+</ul>
+<p><strong>并行</strong></p>
+<ul>
+<li>每个线程分配给独立的核心，线程同时运行。</li>
+<li>比喻：一边吃饭一边看球赛。</li>
+</ul>
+<h2 id="多核下线程数量选择">多核下线程数量选择</h2>
+<p><strong>计算密集型</strong></p>
+<ul>
+<li>程序主要为复杂的逻辑判断和复杂的运算。</li>
+<li>cpu的利用率高，不用开太多的线程，开太多线程反而会因为线程切换时切换上下文而浪费资源。</li>
+</ul>
+<p><strong>IO密集型</strong></p>
+<ul>
+<li>程序主要为IO操作，比如磁盘IO(读取文件)和网络IO(网络请求)。</li>
+<li>因为IO操作会阻塞线程，cpu利用率不高，可以开多点线程，阻塞时可以切换到其他就绪线程，提高cpu利用率。</li>
+</ul>
+<p><strong>网络请求型</strong></p>
+<ul>
+<li>可以使用单线程加异步来处理</li>
+</ul>
+<h2 id="同步和异步">同步和异步</h2>
+<p><strong>同步</strong></p>
+<blockquote>
+</blockquote>
+<p>进程之间的关系不是相互排斥临界资源的关系，而是相互依赖的关系。进一步的说明：就是前一个进程的输出作为后一个进程的输入，当第一个进程没有输出时第二个进程必须等待。具有同步关系的一组并发进程相互发送的信息称为消息或事件。
+其中并发又有伪并发和真并发，伪并发是指单核处理器的并发，真并发是指多核处理器的并发。</p>
+<p><strong>异步</strong></p>
+<blockquote>
+</blockquote>
+<p>异步和同步是相对的，同步就是顺序执行，执行完一个再执行下一个，需要等待、协调运行。异步就是彼此独立,在等待某事件的过程中继续做自己的事，不需要等待这一事件完成后再工作。线程就是实现异步的一个方式。异步是让调用方法的主线程不需要同步等待另一线程的完成，从而可以让主线程干其它的事情。</p>
+<p>推荐：博文</p>
+<ul>
+<li><a href="https://blog.csdn.net/u012398362/article/details/51475213">多核CPU、多进程、多线程之间的联系</a></li>
+<li><a href="http://www.cnblogs.com/tracylining/p/3506673.html">并发、并行、同步、异步、阻塞、非阻塞</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">even</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-05-31
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/%E5%BC%82%E6%AD%A5/">异步</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/python/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E4%B8%8A/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Python基础语法(上)</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+            <span class="next-text nav-default">正则表达式学习笔记</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://zhouxiaoxin.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">even</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

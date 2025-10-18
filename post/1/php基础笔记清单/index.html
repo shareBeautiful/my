@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>php基础笔记清单 - vzvixb</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="even" /><meta name="description" content="简要 PHP 继承自一个老的工程，名叫 PHP/FI。PHP/FI 在 1995 年由 Rasmus Lerdorf 创建，最初只是一套简单的 Perl 脚本，用来跟踪访问他主页的人们的信息。它给这一套脚本取名为“Personal Home Page Tools”。随着更多功能需求的增加，Rasmus 写了一个更大的 C 语言的实现，它可以访问数据库，可以让用户开发简单的动态 Web 程序。Rasmus » 发布了 PHP/FI 的源代码，以便每个人都可以使用它，同时大家也可以修正它的 Bug 并且改进它的源代码。
+PHP/FI，一个专为个人主页／表单提供解释程序的程序，已经包含了今天 PHP 的一些基本功能。它有着 Perl 样式的变量，自动解释表单变量，并可以嵌入 HTML。语法本身与 Perl 很相似，但是它很有限，很简单，还稍微有些不协调。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.90.1 with theme even" />
+
+
+<link rel="canonical" href="https://zhouxiaoxin.gitee.io/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="php基础笔记清单" />
+<meta property="og:description" content="简要
+PHP 继承自一个老的工程，名叫 PHP/FI。PHP/FI 在 1995 年由 Rasmus Lerdorf 创建，最初只是一套简单的 Perl 脚本，用来跟踪访问他主页的人们的信息。它给这一套脚本取名为“Personal Home Page Tools”。随着更多功能需求的增加，Rasmus 写了一个更大的 C 语言的实现，它可以访问数据库，可以让用户开发简单的动态 Web 程序。Rasmus » 发布了 PHP/FI 的源代码，以便每个人都可以使用它，同时大家也可以修正它的 Bug 并且改进它的源代码。
+PHP/FI，一个专为个人主页／表单提供解释程序的程序，已经包含了今天 PHP 的一些基本功能。它有着 Perl 样式的变量，自动解释表单变量，并可以嵌入 HTML。语法本身与 Perl 很相似，但是它很有限，很简单，还稍微有些不协调。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhouxiaoxin.gitee.io/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-08-31T11:22:00+00:00" />
+<meta property="article:modified_time" content="2017-08-31T11:22:00+00:00" />
+
+<meta itemprop="name" content="php基础笔记清单">
+<meta itemprop="description" content="简要
+PHP 继承自一个老的工程，名叫 PHP/FI。PHP/FI 在 1995 年由 Rasmus Lerdorf 创建，最初只是一套简单的 Perl 脚本，用来跟踪访问他主页的人们的信息。它给这一套脚本取名为“Personal Home Page Tools”。随着更多功能需求的增加，Rasmus 写了一个更大的 C 语言的实现，它可以访问数据库，可以让用户开发简单的动态 Web 程序。Rasmus » 发布了 PHP/FI 的源代码，以便每个人都可以使用它，同时大家也可以修正它的 Bug 并且改进它的源代码。
+PHP/FI，一个专为个人主页／表单提供解释程序的程序，已经包含了今天 PHP 的一些基本功能。它有着 Perl 样式的变量，自动解释表单变量，并可以嵌入 HTML。语法本身与 Perl 很相似，但是它很有限，很简单，还稍微有些不协调。"><meta itemprop="datePublished" content="2017-08-31T11:22:00+00:00" />
+<meta itemprop="dateModified" content="2017-08-31T11:22:00+00:00" />
+<meta itemprop="wordCount" content="3547">
+<meta itemprop="keywords" content="PHP," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="php基础笔记清单"/>
+<meta name="twitter:description" content="简要
+PHP 继承自一个老的工程，名叫 PHP/FI。PHP/FI 在 1995 年由 Rasmus Lerdorf 创建，最初只是一套简单的 Perl 脚本，用来跟踪访问他主页的人们的信息。它给这一套脚本取名为“Personal Home Page Tools”。随着更多功能需求的增加，Rasmus 写了一个更大的 C 语言的实现，它可以访问数据库，可以让用户开发简单的动态 Web 程序。Rasmus » 发布了 PHP/FI 的源代码，以便每个人都可以使用它，同时大家也可以修正它的 Bug 并且改进它的源代码。
+PHP/FI，一个专为个人主页／表单提供解释程序的程序，已经包含了今天 PHP 的一些基本功能。它有着 Perl 样式的变量，自动解释表单变量，并可以嵌入 HTML。语法本身与 Perl 很相似，但是它很有限，很简单，还稍微有些不协调。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archs</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Cates</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/pages/runoob/">
+        <li class="mobile-menu-item">runoob</li>
+      </a><a href="/pages/98wubi/">
+        <li class="mobile-menu-item">98wubi</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Cates</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/runoob/">runoob</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/98wubi/">98wubi</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">php基础笔记清单</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-08-31 </span>
+        <div class="post-category">
+            <a href="/categories/php/"> PHP </a>
+            </div>
+          <span class="more-meta"> 约 3547 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简要">简要</a></li>
+    <li><a href="#一变量">一.变量</a>
+      <ul>
+        <li><a href="#1变量命名及规范">1.变量命名及规范：</a></li>
+        <li><a href="#2创建变量">2.创建变量：</a></li>
+      </ul>
+    </li>
+    <li><a href="#二数据类型">二.数据类型</a>
+      <ul>
+        <li><a href="#1基本数据类型标量数据类型">1.基本数据类型(标量数据类型)</a></li>
+        <li><a href="#2组合数据类型">2.组合数据类型</a></li>
+        <li><a href="#3特殊数据类型">3.特殊数据类型</a></li>
+        <li><a href="#4松散类型">4.松散类型</a></li>
+        <li><a href="#5测试变量的类型-gettype">5.测试变量的类型 gettype();</a></li>
+        <li><a href="#6改变变量的数据类型">6.改变变量的数据类型</a></li>
+        <li><a href="#7强制类型转换">7.强制类型转换</a></li>
+      </ul>
+    </li>
+    <li><a href="#三运算符与表达式">三.运算符与表达式</a>
+      <ul>
+        <li><a href="#1运算符类型">1.运算符类型</a></li>
+        <li><a href="#2运算符的优先级">2.运算符的优先级</a></li>
+        <li><a href="#3常量-define">3.常量 define();</a></li>
+      </ul>
+    </li>
+    <li><a href="#四选择与循环">四.选择与循环</a>
+      <ul>
+        <li><a href="#1选择语句">1.选择语句</a></li>
+        <li><a href="#2循环语句">2.循环语句</a></li>
+        <li><a href="#3break语句退出循环">3.break语句退出循环</a></li>
+        <li><a href="#4continue语句跳过本次循环">4.continue语句跳过本次循环</a></li>
+        <li><a href="#5goto语句">5.goto语句</a></li>
+      </ul>
+    </li>
+    <li><a href="#五函数">五.函数</a></li>
+    <li><a href="#六对象">六.对象</a>
+      <ul>
+        <li><a href="#1面向对象设计的优点代码与需求易融合可重用性模块特性">1.面向对象设计的优点：代码与需求易融合、可重用性、模块特性</a></li>
+        <li><a href="#2面向对象设计的基础">2.面向对象设计的基础</a></li>
+        <li><a href="#3php中创建类和对象">3.PHP中创建类和对象</a></li>
+        <li><a href="#4创建和使用属性">4.创建和使用属性</a></li>
+        <li><a href="#6-多态">6. 多态</a></li>
+        <li><a href="#7串行化serialize方法__sleep__wakeup">7.串行化serialize()方法，__sleep(),__wakeup()</a></li>
+        <li><a href="#8自动加载类-__autoload">8.自动加载类 __autoload();</a></li>
+        <li><a href="#9魔术方法-__get__set__clone__sleep__wakeup">9.魔术方法 __get(),__set(),__clone,__sleep(),__wakeup()&hellip;</a></li>
+        <li><a href="#10命名空间-namespace">10.命名空间 namespace</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="简要">简要</h2>
+<p>PHP 继承自一个老的工程，名叫 PHP/FI。PHP/FI 在 1995 年由 Rasmus Lerdorf 创建，最初只是一套简单的 Perl 脚本，用来跟踪访问他主页的人们的信息。它给这一套脚本取名为“Personal Home Page Tools”。随着更多功能需求的增加，Rasmus 写了一个更大的 C 语言的实现，它可以访问数据库，可以让用户开发简单的动态 Web 程序。Rasmus » 发布了 PHP/FI 的源代码，以便每个人都可以使用它，同时大家也可以修正它的 Bug 并且改进它的源代码。</p>
+<p>PHP/FI，一个专为个人主页／表单提供解释程序的程序，已经包含了今天 PHP 的一些基本功能。它有着 Perl 样式的变量，自动解释表单变量，并可以嵌入 HTML。语法本身与 Perl 很相似，但是它很有限，很简单，还稍微有些不协调。</p>
+<p>到1997年，PHP/FI 2.0，也就是它的 C 语言实现的第二版在全世界已经有几千个用户（估计）和大约 50,000 个域名安装，大约是 Internet 所有域名的 1%。但是那时只有几个人在为该工程撰写少量当代码，它仍然只是一个人的工程。</p>
+<p>PHP/FI 2.0 在经历了数个 beta 版本的发布后于 1997 年 11 月发布了官方正式版本。不久，PHP 3.0 的第一个 alpha 版本的发布，PHP 从此走向了成功。</p>
+<p>1998 年的冬天，PHP 3.0 官方发布不久，Andi Gutmans 和 Zeev Suraski 开始重新编写 PHP 代码。设计目标是增强复杂程序运行时的性能和 PHP 自身代码的模块性。PHP 3.0 的新功能和广泛的第三方数据库、API的支持使得这样程序的编写成为可能，但是 PHP 3.0 没有高效处理如此复杂程序的能力。</p>
+<p>PHP 5 在长时间的开发及多个预发布版本后，于 2004 年 7 月发布正式版本。它的核心是 Zend 引擎 2 代，引入了新的对象模型和大量新功能。</p>
+<h2 id="一变量">一.变量</h2>
+<h3 id="1变量命名及规范">1.变量命名及规范：</h3>
+<p>一个变量包括两方面：变量名和变量值。</p>
+<ul>
+<li>变量名的第一个字符必须是$。</li>
+<li>$后的第一字符必须是 字母 或 下划线。</li>
+<li>php命名区分大小写，最好统一小写。</li>
+</ul>
+<h3 id="2创建变量">2.创建变量：</h3>
+<blockquote>
+<p>在php中创建变量就是变量的声明</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="nv">$a</span> <span class="o">=</span> <span class="s1">&#39;hello world!&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="二数据类型">二.数据类型</h2>
+<h3 id="1基本数据类型标量数据类型">1.基本数据类型(标量数据类型)</h3>
+<ul>
+<li>Integer	整数</li>
+<li>Float		浮点数</li>
+<li>String 	字符串</li>
+<li>Boolean 	布尔型</li>
+</ul>
+<h3 id="2组合数据类型">2.组合数据类型</h3>
+<ul>
+<li>Array 	数组</li>
+<li>Object 	对象</li>
+</ul>
+<h3 id="3特殊数据类型">3.特殊数据类型</h3>
+<ul>
+<li>Resourse 	资源类型</li>
+<li>Null		Null类型</li>
+</ul>
+<h3 id="4松散类型">4.松散类型</h3>
+<blockquote>
+<p>php属于松散类型的语言，可以自动转换变量的数据类型</p>
+</blockquote>
+<h3 id="5测试变量的类型-gettype">5.测试变量的类型 gettype();</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="nv">$a</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">gettype</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span> <span class="c1">//NULL
+</span><span class="c1"></span><span class="nv">$a</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">gettype</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span> <span class="c1">//string
+</span><span class="c1"></span><span class="o">...</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+</blockquote>
+<p>is_int(val),is_float(val),is_string(val);
+is_bool(val),is_array(val),is_object(val);
+is_resource(val),is_null(val); //返回true或false</p>
+<h3 id="6改变变量的数据类型">6.改变变量的数据类型</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="nv">$a</span> <span class="o">=</span> <span class="mf">8.23</span><span class="p">;</span>
+<span class="nx">settype</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nx">string</span><span class="p">);</span> 	<span class="c1">//&#34;8.23&#34;
+</span><span class="c1"></span><span class="nx">settype</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nx">integer</span><span class="p">)</span> 	<span class="c1">//8
+</span><span class="c1"></span><span class="nx">settype</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="nx">boolean</span><span class="p">)</span>		<span class="c1">//1
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="7强制类型转换">7.强制类型转换</h3>
+<blockquote>
+<p>变量本身的类型	并没有发生变化</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="nv">$a</span> <span class="o">=</span> <span class="mf">23.22</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+</blockquote>
+<p>(string) $a;(int) $a;(float) $a;(boolean) $a;
+函数转换：intval(val),floatval(val),strval(val);
+intval()还有第二个参数为转换的基数。</p>
+<h2 id="三运算符与表达式">三.运算符与表达式</h2>
+<h3 id="1运算符类型">1.运算符类型</h3>
+<blockquote>
+</blockquote>
+<ol>
+<li>算数运算符 		+,-,*,/,%</li>
+<li>赋值运算符		=,+=,-=,*=,/=</li>
+<li>位运算			&amp;,|,^,~,&laquo;,&raquo;</li>
+<li>比较运算符		&gt;,&lt;,&gt;=,&lt;=,==,===,!=,!==</li>
+<li>错误控制</li>
+<li>增量、减量运算符	++,&ndash;</li>
+<li>逻辑运算符		&amp;&amp;(and),||(or),xor,!</li>
+<li>字符串运算符 	.,.=</li>
+</ol>
+<h3 id="2运算符的优先级">2.运算符的优先级</h3>
+<blockquote>
+</blockquote>
+<ol>
+<li>算数运算符: &lsquo;*&rsquo;, &lsquo;/&rsquo;, &lsquo;%&rsquo;, &lsquo;+&rsquo;, &lsquo;-&rsquo;</li>
+<li>比较运算符: &lsquo;&lt;&rsquo;, &lsquo;&lt;=&rsquo;, &lsquo;&gt;&rsquo;, &lsquo;&gt;=&rsquo;, &lsquo;&lt;&gt;&rsquo;, &lsquo;==&rsquo;, &lsquo;!=&rsquo;, &lsquo;===&rsquo;, &lsquo;!==&rsquo;</li>
+<li>赋值运算符: &lsquo;=&rsquo;, &lsquo;+=&rsquo;, &lsquo;-=&rsquo;, &lsquo;*=&rsquo;, &lsquo;/=&rsquo;, &lsquo;.=&rsquo;, &lsquo;%=&rsquo;</li>
+</ol>
+<h3 id="3常量-define">3.常量 define();</h3>
+<blockquote>
+</blockquote>
+<p>php中常量不同于变量，常量名不需要以 $ 开头，最好以大写命名
+define(MY_COUNT,22);</p>
+<h2 id="四选择与循环">四.选择与循环</h2>
+<h3 id="1选择语句">1.选择语句</h3>
+<blockquote>
+</blockquote>
+<ul>
+<li>if语句</li>
+<li>if&hellip;else语句</li>
+<li>if&hellip;elseif&hellip;语句</li>
+<li>switch&hellip;case语句</li>
+<li>三目运算符 (exp) ? exp1 : exp2;</li>
+</ul>
+<h3 id="2循环语句">2.循环语句</h3>
+<blockquote>
+</blockquote>
+<ul>
+<li>while循环</li>
+<li>do&hellip;while循环 //先执行循环体再判断</li>
+<li>for&hellip;循环</li>
+<li>foreach()循环</li>
+</ul>
+<h3 id="3break语句退出循环">3.break语句退出循环</h3>
+<h3 id="4continue语句跳过本次循环">4.continue语句跳过本次循环</h3>
+<h3 id="5goto语句">5.goto语句</h3>
+<h2 id="五函数">五.函数</h2>
+<p><code>function name(arg1,arg2){...};</code></p>
+<blockquote>
+</blockquote>
+<ol>
+<li>形参和实参</li>
+<li>按值传递  ：传递的是值得副本</li>
+<li>按引用传递 &amp; ： 传递的是值的引用</li>
+<li>函数返回 return： 返回变量、常量、表达式或引用</li>
+<li>全局变量和局部变量 global和GLOBALS['']; 函数内部变量为局部变量</li>
+<li>静态变量 static ： 也是局部变量，但会把值一直保存在内存中</li>
+</ol>
+<h2 id="六对象">六.对象</h2>
+<blockquote>
+<p>栈空间段， 堆空间段，代码段， 初使化静态段，</p>
+</blockquote>
+<h3 id="1面向对象设计的优点代码与需求易融合可重用性模块特性">1.面向对象设计的优点：代码与需求易融合、可重用性、模块特性</h3>
+<h3 id="2面向对象设计的基础">2.面向对象设计的基础</h3>
+<h4 id="21-类--对一类事物的统称">2.1 类 ： 对一类事物的统称</h4>
+<h4 id="22-对象---对象是类的实例">2.2 对象  ： 对象是类的实例</h4>
+<h4 id="23-属性---类的对象的特性">2.3 属性  ： 类的对象的特性</h4>
+<h4 id="24-方法---类的行为-类的方法和属性统称为类的-成员">2.4 方法  ： 类的行为 (类的方法和属性统称为类的 成员)</h4>
+<h3 id="3php中创建类和对象">3.PHP中创建类和对象</h3>
+<blockquote>
+</blockquote>
+<p>对象总是按引用的方式赋值的
+class Car{};//创建Car类
+$car1 = new Car();//创建一个Car类的实例 把一个对象的引用赋值给 $car1</p>
+<h3 id="4创建和使用属性">4.创建和使用属性</h3>
+<h4 id="41-属性的可见性-公有publicvar保护protected私有private">4.1 属性的可见性 公有:public(var)、保护:protected、私有:private</h4>
+<blockquote>
+</blockquote>
+<p>public公有属性 可被任何代码访问
+protected保护属性 可被本类和子类访问，不被本类和类的子类外部访问
+private私有属性 不被类的子类和类的外部访问，只能本类访问</p>
+<h4 id="42-申明属性并访问属性">4.2 申明属性并访问属性</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Myclass</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="nv">$attr1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nv">$attr2</span><span class="p">;</span>
+  <span class="k">protected</span> <span class="nv">$attr3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nv">$c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Myclass</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$c1</span><span class="o">-&gt;</span><span class="na">attr1</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="43-静态属性-static-可以看成类的全局变量">4.3 静态属性 static 可以看成类的全局变量</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Myclass</span> <span class="p">{</span>
+	<span class="k">static</span> <span class="k">public</span> <span class="nv">$attr1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nv">$c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Myclass</span><span class="p">();</span>
+<span class="c1">//不能使用对象来访问只能类
+</span><span class="c1"></span><span class="k">echo</span> <span class="nx">Myclass</span><span class="o">::</span><span class="nv">$attr1</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="44-类常量-const">4.4 类常量 const</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Myclass</span> <span class="p">{</span>
+	<span class="k">const</span> <span class="no">ATTR</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nv">$c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Myclass</span><span class="p">();</span>
+<span class="c1">//同静态变量一样
+</span><span class="c1"></span><span class="k">echo</span> <span class="nx">Myclass</span><span class="o">::</span><span class="na">ATTR</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="45-反射-对象-reflectionmethod对象方法-invokeargs对象数组参数">4.5 反射 对象 ReflectionMethod(对象,方法) invokeArgs(对象，数组参数)</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Myclass</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">say</span><span class="p">(){</span>
+  <span class="k">return</span> <span class="s1">&#39;我叫小明&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$name</span><span class="p">){</span>
+	<span class="k">return</span> <span class="s1">&#39;我叫&#39;</span><span class="o">.</span><span class="nv">$name</span><span class="o">.</span><span class="s1">&#39;我跑了20000公里&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="nv">$xiaoming</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Myclass</span><span class="p">();</span>
+<span class="nv">$str</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionMethod</span><span class="p">(</span><span class="nv">$xiaoming</span><span class="p">,</span><span class="s2">&#34;say&#34;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$str</span><span class="o">-&gt;</span> <span class="na">invoke</span><span class="p">(</span><span class="nv">$xiaoming</span><span class="p">);</span> <span class="c1">//我叫小明
+</span><span class="c1"></span><span class="nv">$str2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionMethod</span><span class="p">(</span><span class="nv">$xiaoming</span><span class="p">,</span><span class="s1">&#39;run&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$str2</span><span class="o">-&gt;</span> <span class="na">invokeArgs</span><span class="p">(</span><span class="nv">$xiaoming</span><span class="p">,</span><span class="k">Array</span><span class="p">(</span><span class="s1">&#39;小明&#39;</span><span class="p">));</span><span class="c1">//我叫小明我跑了20000公里
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="5方法">5.方法</h4>
+<blockquote>
+</blockquote>
+<p>方法的可见性(public,private,protected)、方法的创建、方法的调用、方法的参数和返回值</p>
+<h4 id="51-方法中访问对象和属性自包含性">5.1 方法中访问对象和属性(自包含性)</h4>
+<blockquote>
+<p>在对象的方法中访问同一个对象的属性，使用$this
+$this分别代表对象$p1、$p2、$p3
+$this-&gt;attr;</p>
+</blockquote>
+<h4 id="52-静态方法-static">5.2 静态方法 static</h4>
+<blockquote>
+</blockquote>
+<p>在静态方法中只能访问静态变量，不能访问普通变量
+static的成员是属于类的，是不属于任何对象实例
+类里面的静态方法只能访问类的静态的属性 self::
+非静态方法里可以访问静态成员不能使用$this,使用self::</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+			<span class="k">class</span> <span class="nc">Car</span> <span class="p">{</span>
+				<span class="k">public</span> <span class="k">static</span> <span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;nice&#39;</span><span class="p">;</span>
+				<span class="k">const</span> <span class="no">AGE</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+				<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(){</span>
+					<span class="k">echo</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$name</span><span class="p">;</span> <span class="c1">//访问$name
+</span><span class="c1"></span>					<span class="k">echo</span> <span class="nx">self</span><span class="o">:</span><span class="nx">AGE</span><span class="p">;</span>	<span class="c1">//访问age
+</span><span class="c1"></span>				<span class="p">}</span>
+			<span class="p">}</span>
+			<span class="nx">Car</span><span class="o">::</span><span class="na">run</span><span class="p">()</span> <span class="c1">//调用静态方法
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="53-类型提示检测方法的参数">5.3 类型提示检测方法的参数</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+			<span class="k">class</span> <span class="nc">Car</span> <span class="p">{</span>
+				<span class="k">public</span> <span class="nv">$color</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">class</span> <span class="nc">Gar</span> <span class="p">{</span>
+				<span class="k">public</span> <span class="k">function</span> <span class="nf">paint</span><span class="p">(</span><span class="nx">Car</span> <span class="nv">$car</span><span class="p">,</span><span class="nv">$color</span><span class="p">){</span>
+					<span class="nv">$car</span><span class="o">-&gt;</span><span class="na">color</span><span class="o">=</span><span class="nv">$color</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+			<span class="nv">$car</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">();</span>
+			<span class="nv">$gar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gar</span><span class="p">();</span>
+			<span class="nv">$car</span><span class="o">-&gt;</span><span class="na">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+			<span class="nv">$gar</span><span class="o">-&gt;</span><span class="na">paint</span><span class="p">(</span><span class="nv">$car</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+			<span class="k">echo</span> <span class="nv">$car</span><span class="o">-&gt;</span><span class="na">color</span><span class="p">;</span> <span class="c1">//blue
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="54-封装实现独立性-private">5.4 封装实现独立性 private</h4>
+<h4 id="55-构造函数和析构函数__construct__destruct">5.5 构造函数和析构函数__construct(),__destruct()</h4>
+<blockquote>
+<p>调用基类的构造函数 parent::__construct();</p>
+</blockquote>
+<h4 id="55-__get__set和__call重载对象">5.5 __get(),__set()和__call()重载对象</h4>
+<blockquote>
+</blockquote>
+<p>__get()和__set();
+使对象能够对不可见的属性的访问和修改</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+				<span class="k">class</span> <span class="nc">Car</span> <span class="p">{</span>
+					<span class="k">private</span> <span class="nv">$color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+					<span class="c1">//__get()方法
+</span><span class="c1"></span>					<span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(){</span>
+						<span class="k">if</span><span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">color</span><span class="p">)){</span>
+							<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">color</span><span class="p">;</span>
+						<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+							<span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+						<span class="p">}</span>
+						
+					<span class="p">}</span>
+					<span class="c1">//__set()方法
+</span><span class="c1"></span>					<span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$val</span><span class="p">){</span>
+						<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">color</span> <span class="o">=</span> <span class="nv">$val</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>方法重载：
+子类写和父类方法一样的名字覆盖父类方法的形式</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+                <span class="k">class</span> <span class="nc">One</span> <span class="p">{</span>
+                    <span class="k">public</span> <span class="k">function</span> <span class="nf">say</span><span class="p">(){</span>
+                        <span class="k">echo</span> <span class="s1">&#39;One&#39;</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">class</span> <span class="nc">Two</span> <span class="k">extends</span> <span class="nx">One</span> <span class="p">{</span>
+                    <span class="k">public</span> <span class="k">function</span> <span class="nf">say</span><span class="p">(){</span>
+                        <span class="k">parent</span><span class="o">::</span><span class="na">say</span><span class="p">();</span>
+                        <span class="k">echo</span> <span class="s1">&#39;Two&#39;</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="56-final关键字-类和方法阻止-继承-和-重载">5.6 final关键字 类和方法阻止 继承 和 重载</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+<span class="k">final</span> <span class="k">class</span> <span class="nc">Demo</span><span class="p">{</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="57-clone-克隆-__clone克隆时执行的方法">5.7 clone 克隆 __clone();//克隆时执行的方法</h4>
+<blockquote>
+<p>$p2 = clone $p1;</p>
+</blockquote>
+<h4 id="58-抽象方法和抽象类-abstract">5.8 抽象方法和抽象类 abstract</h4>
+<blockquote>
+<p>抽象类不能产生实例对象</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+            <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Demo</span> <span class="p">{</span>
+                <span class="k">abstract</span> <span class="k">function</span> <span class="nf">fun1</span><span class="p">();</span>
+                <span class="k">abstract</span> <span class="k">function</span> <span class="nf">fun2</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">class</span> <span class="nc">Text</span> <span class="k">extends</span> <span class="nx">Demo</span><span class="p">{</span>
+                <span class="k">function</span> <span class="nf">fun1</span><span class="p">(){}</span>
+                <span class="k">function</span> <span class="nf">fun2</span><span class="p">(){}</span>
+            <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+</blockquote>
+<p>子类必须把父类中的抽象方法全部都实现，否则子类中还存在抽象方法，
+那么子类还是抽象类，还是不能实例化类</p>
+<h4 id="59-接口-interface">5.9 接口 interface</h4>
+<blockquote>
+</blockquote>
+<p>接口的思想是指定了一个实现了该接口的类必须实现的一系列方法
+接口是一种特殊的抽象类，抽象类又是一种特殊的类，所以接口也是一种特殊的类，
+接口里面所有的方法必须 都是声明为抽象方法,另外接口里面不能声明变量(但可声明常量constant)
+而且接口里面所有的成员都是public权限的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+            <span class="k">interface</span> <span class="nx">One</span> <span class="p">{</span>
+                <span class="k">const</span> <span class="no">constant</span> <span class="o">=</span> <span class="s1">&#39;constant value&#39;</span><span class="p">;</span>
+                <span class="k">public</span> <span class="k">function</span> <span class="nf">fun1</span><span class="p">();</span>
+                <span class="k">public</span> <span class="k">function</span> <span class="nf">fun2</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">interface</span> <span class="nx">Two</span> <span class="k">extends</span> <span class="nx">One</span> <span class="p">{</span>
+                <span class="k">function</span> <span class="nf">fun3</span><span class="p">();</span>
+                <span class="k">function</span> <span class="nf">fun4</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="nx">继承使用</span> <span class="k">implements</span> <span class="nx">关键字</span>
+            <span class="k">class</span> <span class="nc">Three</span> <span class="k">implements</span> <span class="nx">One</span> <span class="p">{</span>
+                <span class="k">function</span> <span class="nf">fun1</span><span class="p">(){}</span>
+                <span class="k">function</span> <span class="nf">fun2</span><span class="p">(){}</span>
+            <span class="p">}</span>
+            <span class="c1">// 实现了全部方法，我们去可以使用子类去实例化对象了
+</span><span class="c1"></span>            <span class="nv">$three</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Three</span><span class="p">();</span>
+            <span class="c1">// 使用implements实现多个接口
+</span><span class="c1"></span>            <span class="k">class</span> <span class="nc">Four</span> <span class="nx">implemtns</span> <span class="nx">接口一</span><span class="p">,</span> <span class="nx">接口二</span><span class="p">,</span> <span class="o">...</span> <span class="p">{</span>
+                <span class="c1">// 必须把所有接口中的方法都要实现才可以实例化对象。
+</span><span class="c1"></span>            <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+</blockquote>
+<p>PHP中不仅一个类可以实现多个接口，也可以在继承一个类的同时实现多个接口,
+一定要先继承类再去实现接口；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">
+            <span class="c1">// 使用extends继承一个类，使用implements实现多个接口
+</span><span class="c1"></span>            <span class="k">class</span> <span class="nc">Four</span> <span class="k">extends</span> <span class="nx">类名一</span> <span class="nx">implemtns</span> <span class="nx">接口一</span><span class="p">,</span> <span class="nx">接口二</span><span class="p">,</span> <span class="o">...</span> <span class="p">{</span>
+                <span class="c1">// 所有接口中的方法都要实现才可以实例化对象
+</span><span class="c1"></span>                <span class="o">...</span>
+            <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="6-多态">6. 多态</h3>
+<blockquote>
+</blockquote>
+<p>多态就是把子类对象赋值给父类引用，然后调用父类的方法，去执行子类覆盖父类的那个方法，
+但在PHP里是弱类型的，对象引用都是一样的不分父类引用，还是子类引用。</p>
+<h3 id="7串行化serialize方法__sleep__wakeup">7.串行化serialize()方法，__sleep(),__wakeup()</h3>
+<blockquote>
+</blockquote>
+<p>serialize()前调用__sleep()方法限制串行化的内容，
+unserialize()后调用__wakeup()方法反序列化后的结果</p>
+<h3 id="8自动加载类-__autoload">8.自动加载类 __autoload();</h3>
+<h3 id="9魔术方法-__get__set__clone__sleep__wakeup">9.魔术方法 __get(),__set(),__clone,__sleep(),__wakeup()&hellip;</h3>
+<h3 id="10命名空间-namespace">10.命名空间 namespace</h3>
+<p><em><!-- raw HTML omitted -->参考<!-- raw HTML omitted --></em></p>
+<ul>
+<li><a href="http://www.cnblogs.com/xiaochaohuashengmi/archive/2010/09/10/1823042.html">http://www.cnblogs.com/xiaochaohuashengmi/archive/2010/09/10/1823042.html</a></li>
+<li>&laquo; php入门经典 &raquo;</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">even</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-08-31
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/php/">PHP</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Ubuntu软件安装和远程连接</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/1/shortcodes/">
+            <span class="next-text nav-default">Shortcodes</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://zhouxiaoxin.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">even</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

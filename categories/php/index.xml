@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PHP on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/categories/php/</link>
+    <description>Recent content in PHP on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Aug 2017 11:22:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>php基础笔记清单</title>
+      <link>https://zhouxiaoxin.gitee.io/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/</link>
+      <pubDate>Thu, 31 Aug 2017 11:22:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/</guid>
+      <description>&lt;h2 id=&#34;简要&#34;&gt;简要&lt;/h2&gt;
+&lt;p&gt;PHP 继承自一个老的工程，名叫 PHP/FI。PHP/FI 在 1995 年由 Rasmus Lerdorf 创建，最初只是一套简单的 Perl 脚本，用来跟踪访问他主页的人们的信息。它给这一套脚本取名为“Personal Home Page Tools”。随着更多功能需求的增加，Rasmus 写了一个更大的 C 语言的实现，它可以访问数据库，可以让用户开发简单的动态 Web 程序。Rasmus » 发布了 PHP/FI 的源代码，以便每个人都可以使用它，同时大家也可以修正它的 Bug 并且改进它的源代码。&lt;/p&gt;
+&lt;p&gt;PHP/FI，一个专为个人主页／表单提供解释程序的程序，已经包含了今天 PHP 的一些基本功能。它有着 Perl 样式的变量，自动解释表单变量，并可以嵌入 HTML。语法本身与 Perl 很相似，但是它很有限，很简单，还稍微有些不协调。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

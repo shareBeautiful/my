@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Ubuntu软件安装和远程连接 - vzvixb</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="even" /><meta name="description" content="简介 Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词（译为吾帮托或乌班图），意思是“人性”、“我的存在是因为大家的存在”，是非洲传统的一种价值观，类似华人社会的“仁爱”思想。Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本。Ubuntu的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统。Ubuntu具有庞大的社区力量，用户可以方便地从社区获得帮助。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.90.1 with theme even" />
+
+
+<link rel="canonical" href="https://zhouxiaoxin.gitee.io/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Ubuntu软件安装和远程连接" />
+<meta property="og:description" content="简介
+Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词（译为吾帮托或乌班图），意思是“人性”、“我的存在是因为大家的存在”，是非洲传统的一种价值观，类似华人社会的“仁爱”思想。Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本。Ubuntu的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统。Ubuntu具有庞大的社区力量，用户可以方便地从社区获得帮助。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhouxiaoxin.gitee.io/post/linux/ubuntu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-09-05T15:01:00+00:00" />
+<meta property="article:modified_time" content="2017-09-05T15:01:00+00:00" />
+
+<meta itemprop="name" content="Ubuntu软件安装和远程连接">
+<meta itemprop="description" content="简介
+Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词（译为吾帮托或乌班图），意思是“人性”、“我的存在是因为大家的存在”，是非洲传统的一种价值观，类似华人社会的“仁爱”思想。Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本。Ubuntu的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统。Ubuntu具有庞大的社区力量，用户可以方便地从社区获得帮助。"><meta itemprop="datePublished" content="2017-09-05T15:01:00+00:00" />
+<meta itemprop="dateModified" content="2017-09-05T15:01:00+00:00" />
+<meta itemprop="wordCount" content="2224">
+<meta itemprop="keywords" content="Linux," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ubuntu软件安装和远程连接"/>
+<meta name="twitter:description" content="简介
+Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词（译为吾帮托或乌班图），意思是“人性”、“我的存在是因为大家的存在”，是非洲传统的一种价值观，类似华人社会的“仁爱”思想。Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本。Ubuntu的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统。Ubuntu具有庞大的社区力量，用户可以方便地从社区获得帮助。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archs</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Cates</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="/pages/runoob/">
+        <li class="mobile-menu-item">runoob</li>
+      </a><a href="/pages/98wubi/">
+        <li class="mobile-menu-item">98wubi</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Cates</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/runoob/">runoob</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pages/98wubi/">98wubi</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Ubuntu软件安装和远程连接</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-09-05 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> Linux </a>
+            </div>
+          <span class="more-meta"> 约 2224 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#ubuntu1604更新源">ubuntu16.04更新源</a></li>
+    <li><a href="#ubuntu-安装软件">ubuntu 安装软件</a>
+      <ul>
+        <li><a href="#安装软件">安装软件</a></li>
+        <li><a href="#卸载软件">卸载软件</a></li>
+        <li><a href="#更新软件">更新软件</a></li>
+        <li><a href="#安装deb软件包">安装deb软件包</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装最新nodejs和npm">安装最新nodejs和npm</a></li>
+    <li><a href="#安装最新python">安装最新python</a></li>
+    <li><a href="#远程连接">远程连接</a>
+      <ul>
+        <li><a href="#1-首先安装ssh服务">1. 首先安装ssh服务</a></li>
+        <li><a href="#2-启动服务">2. 启动服务</a></li>
+        <li><a href="#3-客服端推荐使用xshell">3. 客服端推荐使用xshell</a></li>
+        <li><a href="#4-查看ubuntu的ip地址">4. 查看ubuntu的ip地址</a></li>
+        <li><a href="#5-使用xshell-进行ssh用户名和密码登录远程">5. 使用xshell 进行ssh用户名和密码登录远程</a></li>
+      </ul>
+    </li>
+    <li><a href="#ubuntu-远程ftp">ubuntu 远程ftp</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="简介">简介</h2>
+<p>Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词（译为吾帮托或乌班图），意思是“人性”、“我的存在是因为大家的存在”，是非洲传统的一种价值观，类似华人社会的“仁爱”思想。Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本。Ubuntu的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统。Ubuntu具有庞大的社区力量，用户可以方便地从社区获得帮助。</p>
+<h2 id="ubuntu1604更新源">ubuntu16.04更新源</h2>
+<hr>
+<p>首先编辑<code>vi /etc/apt/sources.list</code> 清空内容将找到的<a href="http://www.jianshu.com/p/c2da889759ba">更新源</a>拷贝进去</p>
+<p>vi编辑器的使用{% post_link vim编辑器基本使用 %}</p>
+<p>或则图形设置更新源 <a href="https://mirrors.ustc.edu.cn/">参考地址</a></p>
+<blockquote>
+<p>这里提供一个阿里云的更新源：</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+<p>拷贝保存后执行命令</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt-get update
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ubuntu-安装软件">ubuntu 安装软件</h2>
+<hr>
+<p><em>参考：http://man.linuxde.net/apt-get</em></p>
+<p><code>apt-get(选项)(参数)</code></p>
+<p><code>$ sudo -s</code>获取权限</p>
+<h3 id="安装软件">安装软件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get install package
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="卸载软件">卸载软件</h3>
+<ol>
+<li>卸载一个软件包(保留配置文件）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get remove package
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>卸载一个软件包(删除配置文件）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get remove package -purge
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>删除你已经删掉的软件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get autoclean apt
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>把安装的软件的备份也删除</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get clean
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="更新软件">更新软件</h3>
+<ol>
+<li>更新所有已安装的软件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get upgrade
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>将系统升级到新版本</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get dist-upgrade
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>定期运行这个命令来清除那些已经卸载的软件包的.deb文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get autoclean
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="安装deb软件包">安装deb软件包</h3>
+<ol>
+<li>安装命令<br>
+<code>dpkg -i xxx.deb</code></li>
+<li>删除软件包<br>
+<code>dpkg -r xxx.deb</code></li>
+<li>连同配置文件一起删除<br>
+<code>dpkg -r –purge xxx.deb</code></li>
+<li>查看软件包信息<br>
+<code>dpkg -info xxx.deb</code></li>
+<li>查看文件拷贝详情<br>
+<code>dpkg -L xxx.deb</code></li>
+<li>查看系统中已安装软件包信息<br>
+<code>dpkg -l</code></li>
+<li>重新配置软件包<br>
+<code>dpkg-reconfigure xxx</code></li>
+</ol>
+<h2 id="安装最新nodejs和npm">安装最新nodejs和npm</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ curl -sL https://deb.nodesource.com/setup_9.x <span class="p">|</span> sudo -E bash -
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt-get install -y nodejs
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="安装最新python">安装最新python</h2>
+<p><strong>安装python需要的依赖</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo su
+$ sudo apt-get install python3-dev build-essential libssl-dev libffi-dev libxml2 libxml2-dev libxslt1-dev zlib1g-dev
+$ sudo apt-get install python3
+$ sudo apt-get install python3-pip
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 添加ppa到系统</span>
+$ sudo add-apt-repository ppa:jonathonf/python-3.6
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt-get update
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt-get install python3.6
+</code></pre></td></tr></table>
+</div>
+</div><p>配置只输入python3时就默认使用3.6版本:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 <span class="m">1</span>
+
+$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 <span class="m">2</span>
+
+$ sudo update-alternatives --config python3
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>centos7安装python3.7</strong></p>
+<ol>
+<li>首先安装如下依赖包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yum -y groupinstall <span class="s2">&#34;Development tools&#34;</span>
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>在自建目录安装</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir /usr/local/python3 
+<span class="nb">cd</span> /usr/local/python3 
+wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>解压安装</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">tar -xvJf  Python-3.7.0.tar.xz
+<span class="nb">cd</span> Python-3.7.0
+./configure --prefix<span class="o">=</span>/usr/local/python3
+make <span class="o">&amp;&amp;</span> make install
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>此步如果安装出错
+以及一个比较重要的包（不装的话，python3.7安装会报错）</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yum install libffi-devel -y
+make install
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>创建软连接</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ln -s /usr/local/python3/bin/python3 /usr/bin/python3
+ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="远程连接">远程连接</h2>
+<hr>
+<h3 id="1-首先安装ssh服务">1. 首先安装ssh服务</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get install openssh-client
+$ apt-get install openssh-server
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-启动服务">2. 启动服务</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ sudo /etc/init.d/ssh start
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>ssh服务默认的端口是22，可以更改端口，使用如下命令打开ssh配置文件：
+<code>sudo gedit /etc/ssh/sshd_config</code>
+修改端口号（Port）后，重启ssh服务即可生效，命令如下：
+<code>sudo /etc/init.d/ssh restart</code></p>
+</blockquote>
+<h3 id="3-客服端推荐使用xshell">3. 客服端推荐使用xshell</h3>
+<h3 id="4-查看ubuntu的ip地址">4. 查看ubuntu的ip地址</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ ifconfig
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5-使用xshell-进行ssh用户名和密码登录远程">5. 使用xshell 进行ssh用户名和密码登录远程</h3>
+<ul>
+<li>具体操作把xshell安装好后一看就明白</li>
+</ul>
+<h2 id="ubuntu-远程ftp">ubuntu 远程ftp</h2>
+<ol>
+<li>安装ftp服务</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ apt-get install vsftpd
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>启动服务</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ service vsftpd start<span class="o">(</span>stop,restart<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>配置ftp <code>/etc/vsftpd/vsftpd.conf</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># 登录FTP后的欢迎信息
+ftpd_banner=welcome to phd.chorus!
+#
+# 并发客户端连接数
+max_clients=15
+#
+# 单个IP并发连接数
+max_per_ip=1
+#
+# 下载限速10Mbps
+local_max_rate=10000000
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># 不允许匿名用户登录
+anonymous_enable=NO
+#
+# 是否允许登录用户有写权限，属于全局设置
+local_umask=022
+#
+# 允许本地用户组的用户登录
+local_enable=YES 
+#
+# 允许本地用户上传文件
+write_enable=YES 
+#
+# 本地用户登入时，将被切换到定义的目录下，默认值为各用户的家目录 
+local_root = /home/phdchorus
+#
+# 控制本地用户目录切换权限
+# 在默认配置下，本地用户登录FTP后可以使用cd命令切到其他目录，这样会有安全隐患
+# 通过配置chroot_list_enable | chroot_list_file | chroot_local_user这3个参数，控制用户切换目录的权限
+# 通过搭配，能实现以下几种效果
+# 1、当chroot_list_enable=YES，chroot_local_user=YES时，chroot_list_file中列出的用户，可以切换到其他目录，未在文件中列出的用户，不能切换到其他目录。
+# 2、当chroot_list_enable=YES，chroot_local_user=NO时，chroot_list_file中列出的用户，不能切换到其他目录，未在文件中列出的用户，可以切换到其他目录。
+# 3、当chroot_list_enable=NO，chroot_local_user=YES时，所有用户都不能切换到其他目录。
+# 4、当chroot_list_enable=NO，chroot_local_user=NO时，所有用户都可以切换到其他目录。
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd.chroot_list
+chroot_local_user=YES
+#
+#
+#
+# 访问控制设置(控制用户访问)
+# 如果设置了local_enable=YES，那么所有的用户(包括root)都能通过FTP登录服务器，出于安全考虑，需要对某些用户进行限制。
+# 启用userlist后，依据userlist_deny的设置，禁止或允许vsftpd.user_list中的用户登录
+#
+# 启用userlist
+userlist_enable=YES
+#
+# 文件内容为允许登录或禁止登录的用户名，每个用户一行。 
+userlist_file=/etc/vsftpd/vsftpd.user_list
+#
+# 若该选项设为YES，系统就会deny（禁止）userlist_file中的用户登陆FTP
+# 若该选项设为NO，系统就仅允许userlist_file中的用户登陆FTP
+userlist_deny=NO 
+#
+#
+# /etc/vsftpd/ftpusers文件专门用于列出禁止访问FTP服务的用户列表
+# ftpusers的优先级要高于其他配置文件
+#
+
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<hr>
+<blockquote>
+</blockquote>
+<p><strong><!-- raw HTML omitted -->推荐地址：<!-- raw HTML omitted --></strong></p>
+<ul>
+<li>【Linux命令大全】: <a href="http://man.linuxde.net/">http://man.linuxde.net/</a></li>
+<li>【Linux基础】: <a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html">https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html</a></li>
+<li>【在 Ubuntu 中安装 VSFTPD 服务器】: <a href="https://linux.cn/article-8312-1.html">https://linux.cn/article-8312-1.html</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">even</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-09-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/javascript/es6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">ES6学习笔记</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/1/php%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%E6%B8%85%E5%8D%95/">
+            <span class="next-text nav-default">php基础笔记清单</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://zhouxiaoxin.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">even</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

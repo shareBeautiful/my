@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jQuery on vzvixb</title>
+    <link>https://zhouxiaoxin.gitee.io/categories/jquery/</link>
+    <description>Recent content in jQuery on vzvixb</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Aug 2017 14:27:00 +0000</lastBuildDate><atom:link href="https://zhouxiaoxin.gitee.io/categories/jquery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jQuery常用操作</title>
+      <link>https://zhouxiaoxin.gitee.io/post/javascript/jquery%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Thu, 10 Aug 2017 14:27:00 +0000</pubDate>
+      
+      <guid>https://zhouxiaoxin.gitee.io/post/javascript/jquery%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+      <description>&lt;h2 id=&#34;一简介&#34;&gt;一、简介&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;p&gt;　　jQuery创始人是美国John Resig，是优秀的Javascript框架；
+　　jQuery是一个轻量级、快速简洁的javaScript库。&lt;a href=&#34;https://jquery.com/download/&#34;&gt;源码戳这&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;jquery对象&#34;&gt;jQuery对象&lt;/h3&gt;
+&lt;p&gt;　　jQuery产生的对象时jQuery独有的，只能自己调用&lt;/p&gt;
+&lt;h3 id=&#34;书写规则&#34;&gt;书写规则&lt;/h3&gt;
+&lt;p&gt;　　支持链式操作；
+　　在变量前加&amp;quot;$&amp;ldquo;符号（var $variable = jQuery 对象）；
+　　注：此规定并不是强制要求。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
